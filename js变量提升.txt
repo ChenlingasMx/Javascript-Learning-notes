@@ -1,0 +1,134 @@
+JavaScript 提升（Hoisting）：提升（Hoisting）是 JavaScript 将声明移至顶部的默认行为。
+
+1.JavaScript 声明会被提升
+在 JavaScript 中，可以在使用变量之后对其进行声明。
+
+换句话说，可以在声明变量之前使用它。
+
+例子 1 与例子 2 的结果相同：
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+x=5; // 把 5 赋值给 x
+document.getElementById("demo").innerHTML=x;// 查找元素,并且 在元素中显示 x
+var x;  // 声明 x
+</script>
+
+</body>
+</html>
+
+例子2:
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+var x;  // 声明 x
+x=5; // 把 5 赋值给 x
+document.getElementById("demo").innerHTML=x;// 查找元素,并且 在元素中显示 x
+
+</script>
+
+</body>
+</html>
+
+
+注意：为了理解这一点，您必须理解术语 "hoisting"。
+
+Hoisting 是 JavaScript 将所有声明提升到当前作用域顶部的默认行为（提升到当前脚本或当前函数的顶部）。
+
+
+
+2.let 和 const 关键字
+用 let 或 const 声明的变量和常量不会被提升！
+
+
+3.JavaScript 初始化不会被提升
+JavaScript 只提升声明，而非初始化。
+
+例子 1 与例子 2 的结果不相同：
+
+例子 1
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+var x = 5; // 初始化 x
+var y = 7; // 初始化 y
+
+elem = document.getElementById("demo"); // 查找元素
+elem.innerHTML = x + " " + y;       // 显示 x 和 y
+
+</script>
+
+</body>
+</html>//5 7
+
+例子2:
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+var x = 5; // 初始化 x
+
+
+elem = document.getElementById("demo"); // 查找元素
+elem.innerHTML = x + " " + y;       // 显示 x 和 y
+var y = 7; // 初始化 y
+</script>
+
+</body>
+</html>x=5 y=undefined   结果是：5 undefined,因为JavaScript 只提升声明，而非初始化。初始化不会被提升。
+
+
+这是
+
+
+
+例子 2 也一样：
+
+例子3,和例子2结果一样:
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+var x = 5; // 初始化 x
+var y；
+
+elem = document.getElementById("demo"); // 查找元素
+elem.innerHTML = x + " " + y;       // 显示 x 和 y
+ y= 7; // 初始化 y
+</script>
+
+</body>
+</html>//5 undefined ，由于 hoisting，y 在其被使用前已经被声明，但是由于未对初始化进行提升，y 的值仍是未定义。
+
+
+4.在顶部声明您的变量！
+Hoisting（对很多开发者来说）是 JavaScript 的一种未知的或被忽视的行为。
+
+如果开发者不理解 hoisting，程序也许会包含 bug（错误）。
+
+为了避免 bug，请始终在每个作用域的开头声明所有变量。
+
+由于这就是 JavaScript 解释代码的方式，请保持这个好习惯。
+
+严格模式中的 JavaScript 不允许在未被声明的情况下使用变量。
+
+
+

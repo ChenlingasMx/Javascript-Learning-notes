@@ -1,0 +1,438 @@
+JavaScript 数组迭代方法
+
+数组迭代方法对每个数组项进行操作。
+
+1.Array.forEach()  Array.forEach()
+forEach() 方法为每个数组元素调用一次函数（回调函数）。
+
+实例
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Array.forEach()</h1>
+
+<p>为每个元素调用一次函数。</p>
+
+<p id="demo"></p>
+
+<script>
+var d="";
+var a=[1,4,6,8,9];
+a.forEach(c);
+function c(value,index,array){
+d+=value+"<br>";
+}
+document.getElementById("demo").innerHTML=d;
+</script>
+
+</body>
+</html>//依次是：1,4,6,8,9
+
+注释：该函数接受 3 个参数：
+
+项目值
+项目索引
+数组本身
+上面的例子只用了 value 参数。这个例子可以重新写为：
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Array.forEach()</h1>
+
+<p>为每个元素调用一次函数。</p>
+
+<p id="demo"></p>
+
+<script>
+var d="";
+var a=[1,4,6,8,9];
+a.forEach(c);
+function c(value){
+d+=value+"<br>";
+}
+document.getElementById("demo").innerHTML=d;
+</script>
+
+</body>
+</html>//依次是：1,4,6,8,9
+
+
+
+2.Array.map()   Array.map()
+map() 方法通过对每个数组元素执行函数来创建新数组。
+
+map() 方法不会对没有值的数组元素执行函数。
+
+map() 方法不会更改原始数组。
+
+这个例子将每个数组值乘以2：
+
+例子：将数组里面所有的值都扩大2倍。
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Array.map()</h1>
+
+<p>为每个元素调用一次函数。</p>
+
+<p id="demo"></p>
+
+<script>
+
+var a=[1,4,6,8,9];
+var dd=a.map(c)
+function c(value){
+return value*2
+}
+document.getElementById("demo").innerHTML=dd;
+
+</script>
+
+</body>
+</html>//2,8,12,16,18
+
+
+3.Array.filter()   Array.filter()
+filter() 方法创建一个包含通过测试的数组元素的新数组。
+
+这个例子用值大于 18 的元素创建一个新数组：
+
+例子：
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Array.filter()</h1>
+
+<p>使用通过测试的所有数组元素创建一个新数组。</p>
+
+<p id="demo"></p>
+
+<script>
+var numbers = [45, 4, 9, 18, 25];
+var c=numbers.filter(c);
+function c(value){
+return value>18;
+}
+document.getElementById("demo").innerHTML=c;
+</script>
+
+</body>
+</html>
+
+
+4.reduce() 求数组元素总和
+reduce() 方法在每个数组元素上运行函数，以生成（减少它）单个值。
+
+reduce() 方法在数组中从左到右工作。另请参见 reduceRight（）。
+
+reduce() 方法不会减少原始数组。
+
+这个例子确定数组中所有数字的总和：
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Array.reduce()</h1>
+
+<p>此例确定数组中所有数字的总和：</p>
+
+<p id="demo"></p>
+
+<script>
+var a=[1,3,"5",6,7];
+var c=a.reduce(v);
+function v(total,value){ //total为总数（初始值/先前返回的值），value为数组本身
+return total+value;
+}
+document.getElementById("demo").innerHTML=c；
+</script>
+
+</body>
+</html>//4567
+
+
+reduce() 方法能够接受一个初始值：
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Array.reduce()</h1>
+
+<p>此例确定数组中所有数字的总和：</p>
+
+<p id="demo"></p>
+
+<script>
+var a=[10,30,"5",6,7];
+var c=a.reduce(v，100);
+function v(total,value){ //total为总数（初始值/先前返回的值），value为数组本身，value默认是100，得出来的总数默认在100上面加
+return total+value;
+}
+document.getElementById("demo").innerHTML=c；
+</script>
+
+</body>
+</html>//140567
+
+
+5.Array.reduceRight()和Array.reduce()效果一样
+reduceRight() 方法在每个数组元素上运行函数，以生成（减少它）单个值。
+
+reduceRight() 方法在数组中从左到右工作。另请参见 reduce（）。
+
+reduceRight() 方法不会减少原始数组。
+
+这个例子确定数组中所有数字的总和：
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Array.reduce()</h1>
+
+<p>此例确定数组中所有数字的总和：</p>
+
+<p id="demo"></p>
+
+<script>
+var a=[10,30,"5",6,7];
+var c=a.reduceRight(v，100);
+function v(total,value){ //total为总数（初始值/先前返回的值），value为数组本身，value默认是100，得出来的总数默认在100上面加
+return total+value;
+}
+document.getElementById("demo").innerHTML=c；
+</script>
+
+</body>
+</html>//140567
+
+
+6.Array.every()返回结果是boolean值
+every() 方法检查所有数组值是否通过测试。
+
+这个例子检查所有数组值是否大于 18：
+
+实例
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Array.reduce()</h1>
+
+<p>此例确定数组中所有数字的总和：</p>
+
+<p id="demo"></p>
+
+<script>
+var a=[10,30,"95",6,7];
+var c=a.every(v);
+function v(value){ 
+return value>18;
+}
+document.getElementById("demo").innerHTML=c；
+</script>
+
+</body>
+</html>//false
+注意：用every()方法时，因为10比18小，只要有一个条件不满足就为真（false）
+
+
+
+7.Array.some()
+some() 方法检查某些数组值是否通过了测试。
+
+这个例子检查某些数组值是否大于 18：
+
+实例
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Array.reduce()</h1>
+
+<p>此例确定数组中所有数字的总和：</p>
+
+<p id="demo"></p>
+
+<script>
+var a=[10,30,"95",6,7];
+var c=a.some(v);
+function v(value){ 
+return value>18;
+}
+document.getElementById("demo").innerHTML=c;
+</script>
+
+</body>
+</html>//因为30比18大，只要有一个条件满足就为真（true）
+注意：用some()方法是，如果数组中有一个值，与判断的值相满足，结果就为true
+
+
+
+
+8.Array.indexOf()方法作用是：取出数组中与要取的值，出现第一次的数组元素
+indexOf() 方法在数组中搜索元素值并返回其位置。
+
+注释：第一个项目的位置是 0，第二个项目的位置是 1，以此类推。
+例子：我想取出第一个Apple数组元素。
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Array.indexOf()</h1>
+
+<p id="demo"></p>
+
+<script>
+var fruits = ["Apple", "Orange", "Apple", "Mango"];
+var a = fruits.indexOf("Mango");
+document.getElementById("demo").innerHTML = a;
+</script>
+
+<p>Internet Explorer 8 或更早的版本不支持 indexOf()。</p>
+
+</body>
+</html>//会得出3，因为Mango第一次出现的位置是下标3
+
+
+语法
+array.indexOf(item, start)
+item	必需。要检索的项目。
+start	可选。从哪里开始搜索。负值将从结尾开始的给定位置开始，并搜索到结尾。
+
+
+如果项目多次出现，则返回第一次出现的位置。
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Array.indexOf()</h1>
+
+<p id="demo"></p>
+
+<script>
+var fruits = ["Apple", "Orange", "Apple", "Mango"];
+var a = fruits.indexOf("Apple",1);
+document.getElementById("demo").innerHTML = "Apple 被找到的位置是：" + (a );
+</script>
+
+<p>Internet Explorer 8 或更早的版本不支持 indexOf()。</p>
+
+</body>
+</html>//2
+
+如果未找到项目，Array.indexOf() 返回 -1。
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Array.indexOf()</h1>
+
+<p id="demo"></p>
+
+<script>
+var fruits = ["Apple", "Orange", "Apple", "Mango"];
+var a = fruits.indexOf("d",1);
+document.getElementById("demo").innerHTML = "Apple 被找到的位置是：" + (a );
+</script>
+
+<p>Internet Explorer 8 或更早的版本不支持 indexOf()。</p>
+
+</body>
+</html>//-1
+
+
+9.Array.lastIndexOf()
+Array.lastIndexOf() 与 Array.indexOf() 类似，但是从数组结尾开始搜索。
+
+实例
+检索数组中的项目 "Apple"：
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Array.indexOf()</h1>
+
+<p id="demo"></p>
+
+<script>
+var fruits = ["Apple", "Orange", "Apple", "Mango"];
+var a = fruits.lastIndexOf("Apple");
+document.getElementById("demo").innerHTML = a;
+</script>
+
+
+</body>
+</html>//2
+
+
+
+Array.find()   
+find() 方法返回通过测试函数的第一个数组元素的值。
+
+这个例子查找（返回）大于 18 的第一个元素的值：
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Array.indexOf()</h1>
+
+<p id="demo"></p>
+
+<script>
+var fruits = [1,66,22,44,2,5];
+var a = fruits.find(c);
+function c(value){
+return value>18
+}
+document.getElementById("demo").innerHTML = a;
+</script>
+
+
+</body>
+</html>//66
+
+Array.findIndex()
+findIndex() 方法返回通过测试函数的第一个数组元素的索引。
+
+这个例子查找大于 18 的第一个元素的索引：
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Array.indexOf()</h1>
+
+<p id="demo"></p>
+
+<script>
+var fruits = [1,66,22,44,2,5];
+var a = fruits.findIndex(c);
+function c(value){
+return value>18
+}
+document.getElementById("demo").innerHTML = a;
+</script>
+
+
+</body>
+</html>//1
+
+
+
+
+
+

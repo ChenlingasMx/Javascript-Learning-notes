@@ -1,0 +1,121 @@
+JavaScript 比较和逻辑运算符
+
+比较和逻辑运算符用于测试 true 或 false。
+
+1.比较运算符
+比较运算符在逻辑语句中使用，以判定变量或值是否相等。
+
+我们给定 x = 5，下表中解释了比较运算符：
+
+运算符		描述		比较		返回	
+==		等于		x == 8		false	
+				x == 5		true				
+				x == "5"	true	
+===	值相等并且类型相等	x === 5		true	
+				x === "5"	false	
+!=		不相等		x != 8		true	
+!==	值不相等或类型不相等	x !== 5		false	
+				x !== "5"	true	
+				x !== 8		true	
+>		大于		x > 8		false	
+<		小于		x < 8		true	
+>=		大于或等于	x >= 8		false	
+<=		小于或等于	x <= 8		true	
+
+
+2.如何使用
+比较运算符可用在条件语句中对值进行比较，并根据结果采取动作：
+
+if (age < 18) text = "太年轻";
+
+
+3.逻辑运算符
+逻辑运算符用于判定变量或值之间的逻辑。
+
+我们给定 x = 6 且 y = 3，下表解释了逻辑运算符：
+
+运算符	描述	例子				
+&&	与	(x < 10 && y > 1) 为 true //只有两个或多个同时满足，才为true	
+||	或	(x == 5 || y == 5) 为 false//只要一个不满足，就为false
+!	非	!(x == y) 为 true	
+
+
+4.条件（三元）运算符
+JavaScript 也包含了可基于某些条件向变量赋值的条件运算符。
+
+语法
+var iablename = (condition) ? value1:value2
+实例
+var voteable = (age < 18) ? "太年轻":"足够成熟";
+
+如果变量 age 的值小于 18，变量 voteable 的值将是 "太年轻"，否则变量 voteable 的值将是 "足够成熟"。
+
+
+5.比较不同的类型
+比较不同类型的数据也许会出现不可预料的结果。
+
+如果将字符串与数字进行比较，那么在做比较时 JavaScript 会把字符串转换为数值。空字符串将被转换为 0。非数值字符串将被转换为始终为 false 的 NaN。
+
+案例		值	
+2 < 12		true	
+2 < "12"	true	
+2 < "John"	false	
+2 > "John"	false	
+2 == "John"	false	
+"2" < "12"	false	
+"2" > "12"	true	
+"2" == "12"	false	
+0==""  		true
+0===""  	false
+当比较两个字符串时，"2" 大于 "12"，因为（按照字母排序）1 小于 2。
+
+为了确保正确的结果，在比较值前应该把变量转换为合适的类型：
+
+当比较两个字符串时，"2" 大于 "12"，因为（按照字母排序）1 小于 2。
+
+为了确保正确的结果，在比较值前应该把变量转换为合适的类型：
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 比较</h1>
+
+<p>请输入您的年龄然后点击按钮：</p>
+
+<input id="age" value="18" />
+
+<button onclick="a()">试一试</button>
+
+<p id="demo"></p>
+
+<script>
+function a(){
+var age,txt;
+age=Number(document.getElementById("age").value);
+ if(isNaN(age)){//isNaN用来判断是否输入数字，那个不是为true，是数字为false
+txt="请输入数字"
+
+
+}else{
+txt=(age<18)?"小孩":"成人"
+
+
+}
+document.getElementById("demo").innerHTML=txt;
+}
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

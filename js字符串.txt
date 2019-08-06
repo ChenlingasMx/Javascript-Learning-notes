@@ -1,0 +1,268 @@
+1.JavaScript 字符串用于存储和操作文本。
+
+JavaScript 字符串
+
+JavaScript 字符串是引号中的零个或多个字符。
+例;
+var x = "Bill Gates" //用引号包围的字符串
+
+2.您能够使用单引号或双引号：
+
+实例
+var carname = "Porsche 911";
+var carname = 'Porsche 911'
+
+3.您可以在字符串中使用引号，只要不匹配围绕字符串的引号即可：
+
+实例
+var answer = "It's good to see you again!";
+var answer = "He is called 'Bill'";
+var answer = 'He is called "Bill"';
+
+4.字符串长度（length）
+
+内建属性 length 可返回字符串的长度：
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+
+<h1>JavaScript 字符串属性</h1>
+
+
+<p>length 属性返回字符串的长度：</p>
+
+
+
+<p id="demo"></p>
+
+
+<script>
+
+var a="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+document.getElementById("demo").innerHTML=a.length
+
+;
+</script>
+
+
+
+</body>
+
+</html>
+//61
+
+注意：<script><script>标签应该放在代码最底部或者<head></head>中
+
+5.特殊字符
+
+由于字符串必须由引号包围，JavaScript 会误解这段字符串：
+var y = "中国是瓷器的故乡，因此 china 与"China（中国）"同名。"
+该字符串将被切为 "中国是瓷器的故乡，因此 china 与"。
+
+避免此问题的解决方法是，使用 \ 转义字符。
+
+反斜杠转义字符把特殊字符转换为字符串字符：
+
+\\(代码) 将转成字符串（\）
+\"(代码) 将转成字符串（"）
+\'(代码) 将转成字符串（'）
+
+例子：我要显示 "中国是瓷器的故乡，因此 china 与"China（中国）"同名。"
+
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+
+<h1>JavaScript 字符串属性</h1>
+
+
+<p>length 属性返回字符串的长度：</p>
+
+
+
+<p id="demo"></p>
+
+
+<script>
+
+var a="中国是瓷器的故乡，因此 china 与\"China（中国）\"同名。";
+document.getElementById("demo").innerHTML=a
+
+;
+</script>
+
+
+
+</body>
+
+</html>
+//中国是瓷器的故乡，因此 china 与"China（中国）"同名。
+
+
+例子：我要显示：It's good to see you again
+
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+
+<h1>JavaScript 字符串属性</h1>
+
+
+<p>length 属性返回字符串的长度：</p>
+
+
+
+<p id="demo"></p>
+
+
+<script>
+
+var a="It\'s good to see you again";
+
+document.getElementById("demo").innerHTML=a
+
+;
+</script>
+
+
+
+</body>
+
+</html>
+//It's good to see you again
+
+6.转义字符（\）也可用于在字符串中插入其他特殊字符。
+
+其他六个 JavaScript 中有效的转义序列：
+\n 		有换行效果
+\t		有空格效果，水平制表符
+\f		有换页效果
+\R		有回车效果
+\V		垂直制表符
+
+
+7.长代码行换行
+
+为了最佳可读性， 程序员们通常会避免每行代码超过 80 个字符串。
+
+如果某条 JavaScript 语句不适合一整行，那么最佳换行位置是某个运算符之后：
+实例
+document.getElementById("demo").innerHTML =
+"Hello Kitty.";
+
+
+
+8.您也可以在字符串中换行，通过一个反斜杠即可：
+
+实例
+
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+
+<h1>JavaScript 字符串属性</h1>
+
+
+<p>length 属性返回字符串的长度：</p>
+
+
+
+<p id="demo"></p>
+
+
+<script>
+
+document.getElementById("demo").innerHTML ="Hello \
+ Kitty.";
+</script>
+
+
+
+</body>
+
+</html>
+//Hello Kitty.
+
+
+9.\ 方法并不是 ECMAScript (JavaScript) 标准。
+
+某些浏览器也不允许 \ 字符之后的空格。
+
+对长字符串换行的最安全做法（但是有点慢）是使用字符串加法：
+
+实例
+document.getElementById("demo").innerHTML = "Hello" + 
+"Kitty!";
+
+
+10.您不能通过反斜杠对代码行进行换行：
+实例
+document.getElementById("demo").innerHTML =\ "HelloKitty!";//内容将不显示
+
+11.字符串可以是对象
+通常，JavaScript 字符串是原始值，通过字面方式创建：
+var firstName = "Bill"
+但是字符串也可通过关键词 new 定义为对象：
+var firstName = new String("Bill")
+实例
+var x = "Bill";
+var y = new String("Bill");
+
+// typeof x 将返回 string
+// typeof y 将返回 object
+
+
+
+12.请不要把字符串创建为对象。它会拖慢执行速度。
+
+new 关键字使代码复杂化。也可能产生一些意想不到的结果：
+
+当使用 == （比较的是值是否相等）相等运算符时，相等字符串是相等的：
+
+实例
+var x = "Bill";             
+var y = new String("Bill");
+
+// (x == y) 为 true，因为 x 和 y 的值相等 ，都是bill
+
+
+当使用 === 运算符时，相等字符串是不相等的，因为 === 运算符需要类型和值同时相等。
+
+实例
+var x = "Bill";             
+var y = new String("Bill");
+
+// (x === y) 为 false，因为 x 和 y 的类型不同（字符串与对象）
+
+甚至更糟。对象无法比较：
+
+实例
+var x = new String("Bill");   新开辟了内存空间，          
+var y = new String("Bill");
+
+// (x == y) 为 false，因为 x 和 y 是不同的对象
+实例
+var x = new String("Bill");             
+var y = new String("Bill");
+
+// (x === y) 为 false，因为 x 和 y 是不同的对象
+
+请注意 (x==y) 与 (x===y) 的区别。
+
+JavaScript 对象无法进行对比，比较两个 JavaScript 将始终返回 false。
+
+
+
+

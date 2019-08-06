@@ -1,0 +1,166 @@
+1.在 HTML 中，JavaScript 语句是由 web 浏览器“执行”的“指令”。
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<p id="demo"></p>
+
+<script>
+var a=1,b=2;
+z=a+b;
+ document.getElementById("demo").innerHTML = z;
+</script>
+
+</body>
+</html> //3
+
+
+2.JavaScript 程序
+
+计算机程序是由计算机“执行”的一系列“指令”。
+
+在编程语言中，这些编程指令被称为语句。
+
+JavaScript 程序就是一系列的编程语句。
+
+注释：在 HTML 中，JavaScript 程序由 web 浏览器执行。
+
+
+
+3.JavaScript 语句
+
+JavaScript 语句由以下构成：
+
+值、运算符、表达式、关键词和注释。
+
+这条语句告诉浏览器在 id="demo" 的 HTML 元素中输出 "Hello Kitty."：
+
+document.getElementById("demo").innerHTML = "Hello Kitty.";
+
+
+
+大多数 JavaScript 程序都包含许多 JavaScript 语句。
+
+这些语句会按照它们被编写的顺序逐一执行。
+
+注释：JavaScript 程序（以及 JavaScript 语句）常被称为 JavaScript 代码。
+
+
+4.
+分号 ;
+
+分号分隔 JavaScript 语句。
+
+请在每条可执行的语句之后添加分号：
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<p id="demo"></p>
+
+<script>
+a = 5;
+b = 6;
+c = a + b;
+ document.getElementById("demo").innerHTML = c;
+</script>
+
+</body>
+</html> //11
+
+
+5.如果有分号分隔，允许在同一行写多条语句：
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<p id="demo"></p>
+
+<script>
+
+a = 5; b = 6; c = a + b;
+ document.getElementById("demo").innerHTML = c;
+</script>
+
+</body>
+</html> //11
+提示：以分号结束语句不是必需的，但我们仍然强烈您这么做。
+
+
+6.JavaScript 空白字符
+
+JavaScript 会忽略多个空格。您可以向脚本添加空格，以增强可读性。
+
+下面这两行是相等的：
+var person = "Bill";
+var person="Bill"; 
+
+ 在运算符旁边（ = + - * / ）添加空格是个好习惯：
+var x = y + z;
+
+
+7.JavaScript 行长度和折行
+
+为了达到最佳的可读性，程序员们常常喜欢把代码行控制在 80 个字符以内。
+
+如果 JavaScript 语句太长，对其进行折行的最佳位置是某个运算符（折行的最佳位置是运算符或逗号之后。 ）：
+
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<p id="demo"></p>
+
+<script>
+ document.getElementById("demo").innerHTML = 
+"嘻嘻哈哈";
+</script>
+
+</body>
+</html>
+
+
+8.JavaScript 代码块
+
+JavaScript 语句可以用花括号（{...}）组合在代码块中。
+
+代码块的作用是定义一同执行的语句。
+
+您会在 JavaScript 中看到成块组合在一起的语句：
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript 语句</h2>
+
+
+<p>JavaScript 代码块在 { 与 } 之间编写。</p>
+
+
+<button type="button" onclick="myFunction()">点击我！</button>
+
+
+<p id="demo1"></p>
+
+<p id="demo2"></p>
+
+
+<script>
+
+function myFunction() {
+ 
+	document.getElementById("demo1").innerHTML = "Hello Kitty.";
+    	document.getElementById("demo2").innerHTML = "How are you?";
+
+}
+
+</script>
+
+</body>
+</html>
+注释：在本教程中我们为代码块用了 4 个空格的缩进。
+

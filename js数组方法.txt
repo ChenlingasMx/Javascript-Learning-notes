@@ -1,0 +1,637 @@
+1.JavaScript 数组的力量隐藏在数组方法中。
+
+把数组转换为字符串（toString()）
+JavaScript 方法 toString() 把数组转换为数组值（逗号分隔）的字符串。
+实例
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits.toString(); 
+结果
+
+Banana,Orange,Apple,Mango
+
+2.join()
+join() 方法也可将所有数组元素结合为一个字符串。
+
+它的行为类似 toString()，但是您还可以规定分隔符：
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 数组方法</h1> 
+
+<h2>join()</h2>
+
+<p>join() 方法将数组元素连接成一个字符串。</p>
+
+<p>在这个例子中我们使用“*”作为元素之间的分隔符：</p>
+
+<p id="demo"></p>
+
+<script>
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits.join(" *");
+</script>
+
+</body>
+</html>//Banana * Orange * Apple * Mango
+
+3.Popping (pop()删除最后一个)和 Pushing(push()在最后一个数组后面添加一个或多个数组)
+在处理数组时，删除元素和添加新元素是很简单的。
+
+Popping 和 Pushing 指的是：
+
+从数组弹出项目，或向数组推入项目。
+
+
+
+
+
+
+4.Popping
+pop() 方法从数组中删除最后一个元素：
+
+实例：
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 数组方法</h1> 
+
+<h2>pop()</h2>
+
+<p>pop() 方法从数组中删除最后一个元素。</p>
+
+<p id="demo1"></p>
+<p id="demo2"></p>
+
+<script>
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo1").innerHTML = fruits;
+fruits.pop();
+document.getElementById("demo2").innerHTML = fruits;
+</script>
+
+</body>
+</html>//Banana,Orange,Apple
+
+
+pop() 方法返回“被弹出”的值：
+
+实例
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 数组方法</h1> 
+
+<h2>pop()</h2>
+
+<p>pop() 方法从数组中删除最后一个元素。</p>
+
+<p id="demo1"></p>
+<p id="demo2"></p>
+
+<script>
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo1").innerHTML = fruits;
+var h=fruits.pop();
+document.getElementById("demo2").innerHTML = h;
+</script>
+
+</body>
+</html>
+
+5.Pushing
+push() 方法（在数组结尾处）向数组添加一个新的元素：
+
+实例
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 数组方法</h1> 
+
+<h2>pop()</h2>
+
+<p>pop() 方法从数组中删除最后一个元素。</p>
+
+<p id="demo1"></p>
+<p id="demo2"></p>
+
+<script>
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo1").innerHTML = fruits;
+fruits.push("aaa")
+document.getElementById("demo2").innerHTML = fruits;;
+</script>
+
+</body>
+</html>//Banana,Orange,Apple,Mango,aaa
+
+push() 方法返回新数组的长度：
+
+实例
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 数组方法</h1> 
+
+<h2>pop()</h2>
+
+<p>pop() 方法从数组中删除最后一个元素。</p>
+
+<p id="demo1"></p>
+<p id="demo2"></p>
+
+<script>
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo1").innerHTML = fruits;
+var dd=fruits.push("aaa")
+document.getElementById("demo2").innerHTML =dd;
+</script>
+
+</body>
+</html>//5
+
+
+6.位移元素
+位移与弹出等同，但处理首个元素而不是最后一个。
+
+shift() 方法会删除首个数组元素，并把所有其他元素“位移”到更低的索引。（与pop（）方法相反）
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 数组方法</h1> 
+
+<h2>pop()</h2>
+
+<p>pop() 方法从数组中删除最后一个元素。</p>
+
+<p id="demo1"></p>
+<p id="demo2"></p>
+
+<script>
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo1").innerHTML = fruits;
+fruits.shift();
+document.getElementById("demo2").innerHTML =dd;
+</script>
+
+</body>
+</html>// "Orange", "Apple", "Mango"
+
+
+例二：
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 数组方法</h1> 
+
+<h2>shift()</h2>
+
+<p>shift() 方法删除数组的第一个元素（并将所有其他元素“移位”到左侧）：</p>
+
+<p id="demo1"></p>
+<p id="demo2"></p>
+
+<script>
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo1").innerHTML = fruits;
+
+document.getElementById("demo2").innerHTML = fruits.shift();
+</script>
+
+</body>
+</html>//Banana
+
+
+
+unshift()与push()方法相反，它是在数组前面添加一个新数组。
+unshift() 方法（在开头）向数组添加新元素，并“反向位移”旧元素：
+例子
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 数组方法</h1> 
+
+<h2>shift()</h2>
+
+<p>shift() 方法返回被移出的元素。</p>
+
+<p id="demo1"></p>
+
+
+<script>
+var a=["a","b","c","d","e"];
+a.unshift("ggg");
+document.getElementById("demo1").innerHTML=a;
+</script>
+
+</body>
+</html>//ggg,a,b,c,d,e
+
+
+
+7.unshift() 方法返回新数组的长度。
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 数组方法</h1> 
+
+<h2>shift()</h2>
+
+<p>shift() 方法返回被移出的元素。</p>
+
+
+
+8.更改元素
+通过使用它们的索引号来访问数组元素：
+
+数组索引（下标）以 0 开始。[0] 是第一个数组元素，[1] 是第二个，[2] 是第三个 ...
+
+
+例子：
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 数组方法</h1> 
+<p id="demo"></p>
+<script>
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits[0]="aaa";
+document.getElementById("demo").innerHTML=fruits
+
+</script>
+
+</body>
+</html>//aaa,Orange,Apple,Mango
+
+
+length 属性提供了向数组追加新元素的简易方法：
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 数组方法</h1> 
+<p id="demo"></p>
+<script>
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits[fruits.length]="aaa";  // 向 fruits 追加 "Kiwi"
+document.getElementById("demo").innerHTML=fruits
+
+</script>
+
+</body>
+</html>//"Banana", "Orange", "Apple", "Mango","aaa"
+
+
+
+9.删除元素
+
+既然 JavaScript 数组属于对象，其中的元素就可以使用 JavaScript delete 运算符来删除：
+
+例子：删除数组第一个位置的索引，可以用shift（），也可以用delete 数组名[0]
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 数组方法</h1> 
+<p id="demo"></p>
+<script>
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+delete fruits[0]
+document.getElementById("demo").innerHTML= fruits;
+
+</script>
+
+</body>
+</html>//, "Orange", "Apple", "Mango"
+
+注意：删除元素会在数组中留下未定义的孔。删除之后，在接着删除，会得到undefined
+使用 delete弊端： 会在数组留下未定义的空洞。请使用 pop() 或 shift() 取而代之。
+
+
+10.拼接数组（splice）
+
+splice() 方法可用于向数组添加新项:
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 数组方法</h1> 
+
+<p id="demo1"></p>
+
+
+<script>
+var a=["f","g","a"];
+a.splice(2,1,"vvv","hhh");
+document.getElementById("demo1").innerHTML=a
+</script>
+
+</body>
+</html>//f,g,vvv,hhh
+
+解释：第一个参数（2）定义了应添加新元素的位置（拼接）。
+
+第二个参数（0）定义应删除多少元素。
+
+其余参数（"vvv","hhh"）定义要添加的新元素。
+
+
+splice() 方法返回一个包含已删除项的数组：
+
+实例
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 数组方法</h1> 
+
+<h2>splice()</h2>
+
+<p>splice() 方法向数组添加新元素，并返回包含已删除元素（如果有）的数组。</p>
+
+<button onclick="myFunction()">试一试</button>
+
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+
+<script>
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo1").innerHTML = "原数组：<br> " + fruits;
+
+function myFunction() {
+  var removed = fruits.splice(2, 2, "Lemon", "Kiwi"); 
+  document.getElementById("demo2").innerHTML = "新数组：<br>" + fruits;
+  document.getElementById("demo3").innerHTML = "已删除项：<br> " + removed; 
+}
+</script>
+
+</body>
+</html>
+
+结果分别是：
+a.原数组："Banana", "Orange", "Apple", "Mango"
+b.新数组："Banana", "Orange","Lemon", "Kiwi"
+c.已经删除项:"Apple", "Mango".
+
+
+11.合并（连接）数组(concat())
+concat() 方法通过合并（连接）现有数组来创建一个新数组：
+
+实例（合并两个数组）
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 字符串方法</h1>
+
+<p>search() 方法返回字符串中指定文本第一次出现的位置：</p>
+
+<p id="demo"></p>
+
+<script>
+var a=["a","b"];
+var c=["e","f"];
+
+document.getElementById("demo").innerHTML=a.concat(c);  //a连接c
+</script>
+
+</body>
+</html>//a,b,e,f
+
+concat() 方法不会更改现有数组。它总是返回一个新数组。
+
+concat() 方法可以使用任意数量的数组参数：
+
+实例（合并三个数组）
+var arr1 = ["Cecilie", "Lone"];
+var arr2 = ["Emil", "Tobias", "Linus"];
+var arr3 = ["Robin", "Morgan"];
+var myChildren = arr1.concat(arr2, arr3);   // 将arr1、arr2 与 arr3 连接在一起
+//Cecilie,Lone,Emil,Tobias,Linus,Robin,Morgan
+
+
+
+concat() 方法也可以将值作为参数：
+
+实例（将数组与值合并）
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 字符串方法</h1>
+
+<p>search() 方法返回字符串中指定文本第一次出现的位置：</p>
+
+<p id="demo"></p>
+
+<script>
+var arr1 = ["Cecilie", "Lone"];
+var myChildren = arr1.concat(["Emil", "Tobias", "Linus"]); 
+
+document.getElementById("demo").innerHTML=myChildren ;
+</script>
+
+</body>
+</html>//"Cecilie", "Lone","Emil", "Tobias", "Linus"
+
+
+
+12.裁剪数组(slice)
+slice() 方法用数组的某个片段切出新数组。
+
+本例从数组元素 1 （"Cecilie"）开始切出一段数组：
+实例：
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 字符串方法</h1>
+
+<p id="demo"></p>
+
+<script>
+var arr1 = ["Cecilie", "Lone","bbbb","ggggg"];
+var myChildren = arr1.slice(1)
+
+document.getElementById("demo").innerHTML=myChildren ;
+</script>
+
+</body>
+</html>// "Lone","bbbb","ggggg"
+
+
+
+slice() 方法创建新数组。它不会从源数组中删除任何元素。
+
+本例从数组元素 3 （"Apple"）开始切出一段数组：
+
+实例
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 数组方法</h1> 
+
+<h2>slice()</h2>
+
+<p>此例从数组元素 1（“Orange”）开始切出数组的一部分：</p>
+
+<p id="demo"></p>
+
+<script>
+var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+ var a=fruits .slice(3); 
+document.getElementById("demo").innerHTML =a;
+</script>
+
+</body>
+</html>//"Apple", "Mango"
+
+
+slice() 可接受两个参数，比如 (1, 3)。
+
+该方法会从开始参数选取元素，直到结束参数（不包括）为止。
+
+实例
+实例
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 数组方法</h1> 
+
+<h2>slice()</h2>
+
+<p>此例从数组元素 1（“Orange”）开始切出数组的一部分：</p>
+
+<p id="demo"></p>
+
+<script>
+var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+ var a=fruits .slice[1,3]; 
+document.getElementById("demo").innerHTML =a;
+</script>
+
+</body>
+</html>// "Orange", "Lemon"
+
+注意：当给 slice() 方法赋予两个参数时，它从 start 参数中选择数组元素，直到（但不包括）end 参数
+如果结束参数被省略，比如第一个例子，则 slice() 会切出数组的剩余部分。
+
+实例
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 数组方法</h1> 
+
+<h2>slice()</h2>
+
+<p>此例从数组元素 2（“Lemon”）开始切出数组的一部分：</p>
+
+<p id="demo"></p>
+
+<script>
+var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+var citrus = fruits.slice(2);
+document.getElementById("demo").innerHTML = fruits + "<br><br>" + citrus;
+</script>
+
+</body>
+</html>//"Lemon", "Apple", "Mango"
+
+
+自动 toString()
+如果需要原始值，则 JavaScript 会自动把数组转换为字符串。下面两个例子将产生相同的结果：
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 数组方法</h1> 
+
+<h2>toString()</h2>
+
+<p>toString() 方法以逗号分隔的字符串返回数组：</p>
+
+<p id="demo"></p>
+
+<script>
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits.toString();
+</script>
+
+</body>
+</html>//"Banana", "Orange", "Apple", "Mango"
+
+ 
+
+例
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 数组方法</h1> 
+
+<p>当需要一个简单的值时，JavaScript 会自动将数组转换为逗号分隔的字符串：</p>
+
+<p id="demo"></p>
+
+<script>
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits;
+</script>
+
+</body>
+</html>//"Banana", "Orange", "Apple", "Mango"
+
+注意：所有 JavaScript 对象都拥有 toString() 方法。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

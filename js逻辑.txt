@@ -1,0 +1,142 @@
+JavaScript 逻辑
+JavaScript 布尔（逻辑）代表两个值之一：true 或 false。
+布尔值
+通常，在编程中，您会需要只能有两个值之一的数据类型，比如
+
+YES / NO
+ON / OFF
+TRUE / FALSE
+鉴于此，JavaScript 提供一种布尔数据类型。它只接受值 true 或 false。
+
+1.Boolean（）函数
+您可以使用 Boolean() 函数来确定表达式（或变量）是否为真：
+
+实例
+Boolean(10 > 9)        // 返回 true
+或者甚至更简单：
+
+实例
+(10 > 9)              // 也返回 true
+10 > 9                // 也返回 true
+
+2.比较和条件
+JS 比较这一章列出了完整的比较运算符。
+
+JS 条件这一章列出了完整的条件语句。
+
+下面是一些例子：
+
+运算符	描述	实例
+==	等于	if (day == "Monday")
+>	大于	if (salary > 9000)
+<	小于	if (age < 18)
+表达式的布尔值是 JavaScript 比较和条件的基础。
+
+所有具有“真实”值的即为 True
+例：100 是 true
+3.14 是 true
+-15 是 true
+任何（非空）字符串是 true
+即使字符串 'false' 也是 true
+任何表达式（除了零）是 true
+
+a.所有不具有“真实”值的即为 False
+0（零）的布尔值为 false：
+
+var x = 0;
+Boolean(x);       // 返回 false
+
+
+b.-0 （负零）的布尔值为 false：
+
+var x = -0;
+Boolean(x);       // 返回 false
+
+c.""（空值）的布尔值为 false：
+
+var x = "";
+Boolean(x);       // 返回 false
+
+d.undefined 的布尔值是 false：
+
+var x;
+Boolean(x);       // 返回 false
+e.null的Boolean值也为false.
+var x = null;
+Boolean(x);       // 返回 false
+
+f.false 的布尔值（正如您猜到的）是 false：
+
+var x = false;
+Boolean(x);       // 返回 false
+
+g.NaN 的布尔值是 false：
+
+var x = 10 / "H";
+Boolean(x);       // 返回 false
+
+
+总结：正负0的Boolean值都为false，空字符串的boolean也为false。undefined,null,false的布尔值都为false。
+
+
+3.布尔可以是对象
+通常 JavaScript 布尔是由字面量创建的原始值：
+
+var x = false
+但是布尔也可以通过关键词 new 作为对象来定义：
+var y = new Boolean(false)
+实例
+var x = false;
+var y = new Boolean(false);
+
+// typeof x 返回 boolean
+// typeof y 返回 object
+
+
+不要创建布尔对象。它会拖慢执行速度。
+
+new 关键词会使代码复杂化，并产生某些意想不到的结果：
+
+当使用 == 运算符时，相等的布尔是相等的：
+
+实例
+var x = false;             
+var y = new Boolean(false);
+
+// (x == y) 为 true，因为 x 和 y 拥有相等的值
+
+
+当使用 === 运算符时，相等的布尔是不相等的，因为 === 运算符需要在类型和值两方面同时相等。
+
+实例
+var x = false;             
+var y = new Boolean(false);
+
+// (x === y) 为 false，因为虽然 x 和 y 拥有相等的值，但是他们的引用类型不同，一个是Boolean，一个是object。
+
+
+或者甚至更糟。对象无法进行比较：
+
+实例
+var x = new Boolean(false);             
+var y = new Boolean(false);
+
+// (x == y) 为 false，因为对象无法比较
+
+
+
+比较两个 JavaScript 对象将始终返回 false。
+
+
+
+
+
+
+
+
+
+
+
+
+
+

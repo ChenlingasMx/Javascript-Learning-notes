@@ -1,0 +1,200 @@
+1.javascript获取日期的方法
+日期方法允许您获取并设置日期值（年、月、日、时、分、秒、毫秒）
+
+2.日期获取方法
+获取方法用于获取日期的某个部分（来自日期对象的信息）。下面是最常用的方法（以字母顺序排序）：
+
+a.getTime():用来获取时间从1970.1.1到现在的毫秒数：
+例子：<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript getTime()</h2>
+
+<p>JavaScript 中的内部时钟从 1970 年 1 月 1 日午夜开始计算。</p>
+
+<p>getTime() 函数返回从那时起的毫秒数：</p>
+
+<p id="demo"></p>
+
+<script>
+var d = new Date();
+document.getElementById("demo").innerHTML = d.getTime();//1562333932225
+</script>
+
+</body>
+</html>
+
+b.getFullYear():该方法用来获取年份。
+例子：
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript getFullYear()</h2>
+
+<p>getFullYear() 方法返回日期的完整年：</p>
+
+<p id="demo"></p>
+
+<script>
+var a=new Date();
+document.getElementById("demo").innerHTML=a.getFullYear();
+</script>
+
+</body>
+</html>//2019
+
+c.getMonth():该方法用来获取月份。
+getMonth() 方法
+getMonth() 以数字（0-11）返回日期的月份：
+
+实例
+var d = new Date();
+document.getElementById("demo").innerHTML = d.getMonth();
+在 JavaScript 中，第一个月（1 月）是月号 0，因此 12 月返回月号 11。
+
+您可以使用名称数组，并使用 getMonth() 将月份作为名称返回：
+
+注意：如果想要获取当前月份，需要在该方法后面加1.
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript getFullYear()</h2>
+
+<p>getFullYear() 方法返回日期的完整年：</p>
+
+<p id="demo"></p>
+
+<script>
+var a=new Date();
+document.getElementById("demo").innerHTML=a.getMonth()+1;
+</script>
+
+</body>
+</html>//7
+
+
+d.getDate():该方法返回这个月的几号.:getDate() 方法以数字（1-31）返回日期的日：
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript getFullYear()</h2>
+
+<p>getFullYear() 方法返回日期的完整年：</p>
+
+<p id="demo"></p>
+
+<script>
+var a=new Date();
+document.getElementById("demo").innerHTML=a.getDate();
+</script>
+
+</body>
+</html>//5
+
+
+e.getHours():该方法用来返回当前日期的第几小时。:getHours() 方法以数字（0-23）返回日期的小时数：
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript getFullYear()</h2>
+
+<p>getFullYear() 方法返回日期的完整年：</p>
+
+<p id="demo"></p>
+
+<script>
+var a=new Date();
+document.getElementById("demo").innerHTML=a.getHours();
+</script>
+
+</body>
+</html>
+
+
+f.getMinutes():用来返回当前时间的分钟数,getMinutes() 方法以数字（0-59）返回日期的分钟数：
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript getFullYear()</h2>
+
+<p>getFullYear() 方法返回日期的完整年：</p>
+
+<p id="demo"></p>
+
+<script>
+var a=new Date();
+document.getElementById("demo").innerHTML=a.getMinutes();
+</script>
+
+</body>
+</html>
+
+
+g.getSeconds()方法：该方法用来获取当前时间的秒数
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript getFullYear()</h2>
+
+<p>getFullYear() 方法返回日期的完整年：</p>
+
+<p id="demo"></p>
+
+<script>
+var a=new Date();
+document.getElementById("demo").innerHTML=a.getSeconds();
+</script>
+
+</body>
+</html>//7
+
+
+h.getMilliseconds():用来获取当前时间的毫秒数。
+getMilliseconds() 方法以数字（0-999）返回日期的毫秒数：
+
+实例
+var d = new Date();
+document.getElementById("demo").innerHTML = d.getMilliseconds();//33
+
+
+
+l.getDay()方法，用来获取今天星期几
+getDay() 方法以数字（0-6）返回日期的星期名（weekday）
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript getFullYear()</h2>
+
+<p>getFullYear() 方法返回日期的完整年：</p>
+
+<p id="demo"></p>
+
+<script>
+var a=new Date();
+document.getElementById("demo").innerHTML=a.getDay();
+</script>
+
+</body>
+</html>//星期五
+
+注意：在 JavaScript 中，一周的第一天（0）表示“星期日”，即使世界上的一些国家认为周的第一天是“星期一”。
+
+
+
+
+
+
+

@@ -1,0 +1,257 @@
+JavaScript 数组排序
+sort() 方法是最强大的数组方法之一。
+
+1.数组排序(sort（）排序，)
+sort() 方法以字母顺序对数组进行排序：
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.sort(); //"Apple","Banana","Mango"，"Orange"
+
+2.反转排序：也就是把排到后面的排到前面去。reverse()
+例子：
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 数组排序反转</h1>
+
+<p>reverse() 方法反转数组中的元素。</p>
+
+<p>通过组合 sort() 和 reverse()，您可以按降序对数组进行排序。</p>
+
+<button onclick="myFunction()">试一试</button>
+
+<p id="demo"></p>
+
+<script>
+// Create and display an array:
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits;
+
+function myFunction() {
+
+  fruits.reverse(); // 反转元素顺序reverse()
+  document.getElementById("demo").innerHTML = fruits;
+}
+</script>
+
+</body>
+</html>//Mango,Apple,Orange,Banana	
+
+
+
+3.数字排序
+默认地，sort() 函数按照字符串顺序对值进行排序。
+
+该函数很适合字符串（"Apple" 会排在 "Banana" 之前）。
+
+不过，如果数字按照字符串来排序，则 "25" 大于 "100"，因为 "2" 大于 "1"。
+
+正因如此，sort() 方法在对数值排序时会产生不正确的结果。
+
+我们通过一个比值函数来修正此问题：
+
+实例
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 数组排序</h1>
+
+<p>单击按钮以升序对数组进行排序。</p>
+
+<button onclick="myFunction()">试一试</button>
+
+<p id="demo"></p>
+
+<script>
+var points = [40, 100, 1, 5, 25, 10];
+1,5,25,10,40,100
+
+document.getElementById("demo").innerHTML = points;  
+
+function myFunction() {
+  points.sort(function(a, b){return a-b});
+  document.getElementById("demo").innerHTML = points;
+}
+</script>
+
+</body>
+</html>//1,5,10,25,40,100
+
+使用相同的技巧对数组进行降序排序：
+
+实例
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 数组排序</h1>
+
+<p>单击按钮可按降序对数组进行排序。</p>
+
+<button onclick="myFunction()">试一试</button>
+
+<p id="demo"></p>
+
+<script>
+var points = [40, 100, 1, 5, 25, 10];
+
+
+function myFunction() {
+points.sort(function(a,b){return b-a});
+document.getElementById("demo").innerHTML=points;
+}
+</script>
+
+</body>
+</html>//100,40,25,10,5,1
+
+
+4.比值函数
+比较函数的目的是定义另一种排序顺序。
+
+比较函数应该返回一个负，零或正值，这取决于参数：
+
+function(a, b){return a-b}
+当 sort() 函数比较两个值时，会将值发送到比较函数，并根据所返回的值（负、零或正值）对这些值进行排序。
+
+实例：
+当比较 40 和 100 时，sort() 方法会调用比较函数 function(40,100)。
+
+该函数计算 40-100，然后返回 -60（负值）。
+
+排序函数将把 40 排序为比 100 更低的值。
+
+您可以使用下面的代码片段来测试数值和字母排序：
+<button onclick="myFunction1()">以字母顺序排序</button>
+<button onclick="myFunction2()">以数字顺序排序</button>
+
+<p id="demo"></p>
+
+<script>
+var points = [40, 100, 1, 5, 25, 10];
+document.getElementById("demo").innerHTML = points;
+
+function myFunction1() {
+		points.sort();
+		document.getElementById("demo").innerHTML  = points;//1,10,100,25,40,5
+}
+function myFunction2() {
+		points.sort(function(a, b){return  a - b});
+		document.getElementById("demo").innerHTML = points;//1,5,10,25,40,100
+}
+</script>
+
+
+
+5.以随机顺序排序数组（格式：0.5-Math.random()）
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 数组排序</h1>
+
+<p>请反复点击按钮，对数组进行随机排序。</p>
+
+<button onclick="myFunction()">试一试</button>
+
+<p id="demo"></p>
+
+<script>
+var points = [40, 100, 1, 5, 25, 10];
+function myFunction(){
+ points.sort(function(a,b){return 0.5-Math.random()});
+document.getElementById("demo").innerHTML=points;
+}
+</script>
+
+</body>
+</html>
+
+
+6.查找最高（或最低）的数组值
+JavaScript 不提供查找数组中最大或最小数组值的内建函数。
+
+不过，在对数组进行排序之后，您能够使用索引来获得最高或最低值。
+
+升序排序：
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 数组排序</h1>
+
+<p>最低值是：<span id="demo"></span></p>
+
+<script>
+var points = [40, 100, 1, 5, 25, 10];
+points.sort(function(a, b){return a-b});//1,5,10,25,40,100
+document.getElementById("demo").innerHTML = points[0];
+</script>
+
+</body>
+</html>//1
+
+降序排序：
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 数组排序</h1>
+
+<p>最大值是：<span id="demo"></span></p>
+
+<script>
+var points = [40, 100, 1, 5, 25, 10];
+points.sort(function(a, b){return b-a});//100,40,25,10,5,1
+document.getElementById("demo").innerHTML = points[0];
+</script>
+
+</body>
+</html>//100
+
+如果您仅仅需要找到最高或最低值，对整个数组进行排序是效率极低的方法。
+
+
+对数组使用 Math.max()
+您可以使用 Math.max.apply（null,数组名称） 来查找数组中的最高值：
+
+实例
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 数组排序</h1>
+
+<p>最高值是：<span id="demo"></span></p>
+
+<script>
+var points = [40, 100, 1, 5, 25, 10];
+document.getElementById("demo").innerHTML=Math.max.apply(null,points)
+
+</script>
+
+</body>
+</html>//100
+
+注意:Math.max.apply([1, 2, 3]) 等于 Math.max(1, 2, 3)。
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 数组排序</h1>
+
+<p>最小值是：<span id="demo"></span></p>
+
+<script>
+var points = [40, 100, 1, 5, 25, 10];
+document.getElementById("demo").innerHTML=Math.min.apply(null,points)
+
+</script>
+
+</body>
+</html>//1
+

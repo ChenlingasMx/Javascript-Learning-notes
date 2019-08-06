@@ -1,0 +1,149 @@
+1.JavaScript 数值方法
+
+Number 方法帮助您处理数值。
+
+2.Number 方法和属性
+原始值（比如 3.14 或 2016），无法拥有属性和方法（因为它们不是对象）。
+
+但是通过 JavaScript，方法和属性也可用于原始值，因为 JavaScript 在执行方法和属性时将原始值视作对象。
+
+3.toString() 方法
+toString() 以字符串返回数值。
+
+所有数字方法可用于任意类型的数字（字面量、变量或表达式）：
+
+实例
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 数字</h1>
+
+<p>NaN 是数，typeof NaN 返回 number：</p>
+
+<p id="demo"></p>
+
+<script>
+var x =123;
+
+document.getElementById("demo").innerHTML =x.toString();
+</script>
+
+</body>
+</html>
+
+var x = 123;
+x.toString();            // 从变量 x 返回 123
+(123).toString();        // 从文本 123 返回 123
+(100 + 23).toString();   // 从表达式 100 + 23 返回 123
+
+4.toFixed()
+
+实例
+var x = 9.656;
+x.toFixed(0);           // 返回 10
+x.toFixed(2);           // 返回 9.66
+x.toFixed(4);           // 返回 9.6560
+x.toFixed(6);           // 返回 9.656000
+
+toFixed(2) 非常适合处理金钱。
+
+5.toPrecision() 方法  
+toPrecision() 返回字符串值，它包含了指定长度的数字：
+
+实例
+var x = 9.656;
+x.toPrecision();        // 返回 9.656
+x.toPrecision(2);       // 返回 9.7
+x.toPrecision(4);       // 返回 9.656
+x.toPrecision(6);       // 返回 9.65600
+
+6.valueOf() 方法 
+valueOf() 以数值返回数值：
+
+实例
+var x = 123;
+x.valueOf();            // 从变量 x 返回 123
+(123).valueOf();        // 从文本 123 返回 123
+(100 + 23).valueOf();   // 从表达式 100 + 23 返回 12
+
+
+在 JavaScript 中，数字可以是原始值（typeof = number）或对象（typeof = object）。
+
+在 JavaScript 内部使用 valueOf() 方法可将 Number 对象转换为原始值。
+
+没有理由在代码中使用它。
+
+所有 JavaScript 数据类型都有 valueOf() 和 toString() 方法。
+
+
+7.把变量转换为数值
+这三种 JavaScript 方法可用于将变量转换为数字：
+
+Number() 方法  :返回数字，由其参数转换而来。
+parseInt() 方法 ：解析其参数并返回整数。
+parseFloat() 方法 ：	解析其参数并返回浮点数。
+这些方法并非数字方法，而是全局 JavaScript 方法。
+
+8.Number() 方法
+Number() 可用于把 JavaScript 变量转换为数值：
+实例：
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 全局方法</h1>
+
+<p>Number() 方法把变量转换为数字：</p>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = 
+  Number(true) + "<br>" +	//1
+  Number(false) + "<br>" +	//0
+  Number("10") + "<br>" + 	//10
+  Number("  10") + "<br>" +	//10
+  Number("10  ") + "<br>" + 	//10
+  Number(" 10  ") + "<br>" +    //10
+  Number("10.33") + "<br>" +    //10.33
+  Number("10,33") + "<br>" +	//NaN
+  Number("10 33") + "<br>" +	//NaN
+  Number("John");		//NaN
+</script>
+
+</body>
+</html>
+注意：如果无法转换数字，则返回 NaN。
+
+9.用于日期的 Number() 方法
+Number() 还可以把日期转换为数字：
+
+实例
+Number(new Date("2019-04-15"));    // 返回 1506729600000
+
+上面的 Number() 方法返回 1970 年 1 月 1 日至今的毫秒数。（格式：24*60*60*（固定100））
+
+
+10.parseInt() 方法
+parseInt() 解析一段字符串并返回数值。允许空格。只返回首个数字：
+
+实例
+parseInt("10");         // 返回 10
+parseInt("10.33");      // 返回 10
+parseInt("10 20 30");   // 返回 10
+parseInt("10 years");   // 返回 10
+parseInt("years 10");   // 返回 NaN
+
+
+
+11.parseFloat() 方法
+parseFloat() 解析一段字符串并返回数值。允许空格。只返回首个数字：
+
+实例
+parseFloat("10");        // 返回 10
+parseFloat("10.33");     // 返回 10.33
+parseFloat("10 20 30");  // 返回 10
+parseFloat("10 years");  // 返回 10
+parseFloat("years 10");  // 返回 NaN
+如果无法转换为数值，则返回 NaN (Not a Number)。

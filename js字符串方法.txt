@@ -1,0 +1,673 @@
+1.字符串方法帮助您处理字符串。
+
+
+2.字符串方法和属性
+
+原始值，比如“Bill Gates”，无法拥有属性和方法（因为它们不是对象）。
+
+但是通过 JavaScript，方法和属性也可用于原始值，因为在执行方法和属性时 JavaScript 将原始值视为对象。
+
+
+3.取字符串长度(length)
+
+length 属性返回字符串的长度：
+
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function a(){
+var c="aaaaaaaaaaaaaaaaaaaaaaaaaaa"
+document.getElementById("demo").innerHTML=c.length;
+
+}
+</script>
+</head>
+<body>
+<p id="demo"></p>
+<button onclick="a()" ></button>
+</body>
+</html>
+<html>
+
+4.查找字符串中的字符串：indexOf() 方法返回指定文本首次出现的位置
+
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function a(){
+var c="bcffffaccc"
+document.getElementById("demo").innerHTML=c.indexOf("c");
+
+}
+</script>
+</head>
+<body>
+<p id="demo"></p>
+<button onclick="a()" >HHH</button>
+</body>
+</html>
+<html>//1
+注意：下标从0开始
+
+JavaScript 从零计算位置。
+
+0 是字符串中的第一个位置，1 是第二个，2 是第三个 ...
+
+
+5.lastindexOf() 方法返回指定文本最后出现的位置
+
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function a(){
+var c="vchc"
+document.getElementById("demo").innerHTML=c.lastIndexOf("c");
+
+}
+</script>
+</head>
+<body>
+<p id="demo"></p>
+<button onclick="a()" >HHH</button>
+</body>
+</html>
+<html>//3
+
+6.注意：如果未找到文本， indexOf() 和 lastIndexOf() 均返回 -1。
+例
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function a(){
+var c="a换行"
+document.getElementById("demo").innerHTML=c.indexOf("嘻嘻哈哈");
+
+}
+</script>
+</head>
+<body>
+<p id="demo"></p>
+<button onclick="a()" >HHH</button>
+</body>
+</html>
+<html>//-1
+
+
+
+7.两种方法都接受作为检索起始位置的第二个参数。
+indexOf() 方法接受第二个参数作为搜索的起始位置
+
+实例
+<!DOCTYPE html>
+<html>
+<head>a
+<script>
+function a(){
+var str = "ThCinaChina.";
+
+document.getElementById("demo").innerHTML = str.indexOf("China",1);
+
+}
+</script>
+</head>
+<body>
+<p id="demo"></p>
+<button onclick="a()" >HHH</button>
+</body>
+</html>
+<html>//6（ThCinaChina.从左往右数第6个）
+
+
+
+8.lastIndexOf() 方法向后进行检索（从尾到头），这意味着：假如第二个参数是 50，则从位置 50 开始检索，直到字符串的起点。
+
+实例
+var str = "The full name of China is the People's Republic of China.";
+var pos = str.lastIndexOf("China", 50);
+
+
+实例
+<!DOCTYPE html>
+<html>
+<head>a
+<script>
+function a(){
+var str = "ThChinaChinaChina";
+
+document.getElementById("demo").innerHTML =  str.lastIndexOf("China", 1);
+
+}
+</script>
+</head>
+<body>
+<p id="demo"></p>
+<button onclick="a()" >HHH</button>
+</body>
+</html>
+<html>//12（ThCinaChina.从左往右数第12个，也就是数最后一个china）
+
+
+9.检索字符串中的字符串:
+
+search() 方法搜索特定值的字符串，并返回匹配的位置：
+
+实例
+<!DOCTYPE html>
+<html>
+<head>a
+<script>
+function a(){
+var str = "ThChinaChinaChina";
+
+document.getElementById("demo").innerHTML =  str.seach("China");
+
+}
+</script>
+</head>
+<body>
+<p id="demo"></p>
+<button onclick="a()" >HHH</button>
+</body>
+</html>
+<html>//2
+indexOf() 与 search()，是相等的。
+这两种方法是不相等的。区别在于：
+ ?search() 方法无法设置第二个开始位置参数。
+ ?indexOf() 方法无法设置更强大的搜索值（正则表达式）。
+
+10提取部分字符串
+
+有三种提取部分字符串的方法：
+ ?slice(start, end) slice
+ ?substring(start, end) substring
+ ?substr(start, length) substr
+
+11.slice() 方法
+
+slice() 提取字符串的某个部分并在新字符串中返回被提取的部分。
+
+该方法设置两个参数：起始索引（开始位置），终止索引（结束位置,选传，不传则返回包括开始位置所有后面的值）。
+
+
+例子;如果省略第二个参数，则该方法将裁剪字符串的剩余部分：
+<!DOCTYPE html>
+<html>
+<head>a
+<script>
+function a(){
+var str = "Thabcde";
+
+document.getElementById("demo").innerHTML =  str.slice("2");//不传结束位置情况下
+
+}
+</script>
+</head>
+<body>
+<p id="demo"></p>
+<button onclick="a()" >HHH</button>
+</body>
+</html>
+<html>//abcde
+
+<!DOCTYPE html>
+<html>
+<head>a
+<script>
+function a(){
+var str = "Thabcde";
+
+document.getElementById("demo").innerHTML =  str.slice("2","4");//传结束位置情况下
+
+}
+</script>
+</head>
+<body>
+<p id="demo"></p>
+<button onclick="a()" >HHH</button>
+</body>
+</html>
+<html>//ab
+
+12.如果某个参数为负，则从字符串的结尾开始计数。
+
+这个例子裁剪字符串中位置 -11 到位置 -5的片段：
+<!DOCTYPE html>
+<html>
+<head>a
+<script>
+function a(){
+var str = "AppleBananaMango";
+
+document.getElementById("demo").innerHTML = str.slice(-11,-5);
+}
+</script>
+</head>
+<body>
+<p id="demo"></p>
+<button onclick="a()" >HHH</button>
+</body>
+</html>
+<html>//Banana
+
+<!DOCTYPE html>
+<html>
+<head>a
+<script>
+function a(){
+var str = "BananaMango";
+
+document.getElementById("demo").innerHTML = str.slice(-5);
+}
+</script>
+</head>
+<body>
+<p id="demo"></p>
+<button onclick="a()" >HHH</button>
+</body>
+</html>
+<html>//Mango
+
+
+13.substring() 方法
+
+substring() 类似于 slice()。
+
+不同之处在于 substring() 无法接受负的索引。
+
+实例
+var str = "Apple, Banana, Mango";
+var res = str.substring(7,13);
+
+ res 的结果是：
+Banana
+如果省略第二个参数，则该 substring() 将裁剪字符串的剩余部分。
+
+
+14.substr(start,length)
+
+实例
+var str = "Apple, Banana, Mango";
+var res = str.substr(7);
+res 的结果是：
+Banana, Mango
+
+如果首个参数为负，则从字符串的结尾计算位置。
+
+实例
+var str = "Apple, Banana, Mango";
+var res = str.substr(-5);
+
+res 的结果是：
+Mango
+
+第二个参数不能为负，因为它定义的是长度。
+
+
+15.替换字符串内容（replace（））
+replace() 方法用另一个值替换在字符串中指定的值：
+例：将AAA替换为bbb
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function a(){
+
+var c=document.getElementById("demo").innerHTML;
+var d=c.replace("AAA","bbb")
+document.getElementById("demo").innerHTML=d;
+}
+</script>
+</head>
+<body>
+<p id="demo">AAA</p>
+<button onclick="a()" >替换</button>
+</body>
+</html>
+<html>
+
+replace() 方法不会改变调用它的字符串。它返回的是新字符串。
+
+默认地，replace() 只替换首个匹配：
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function a(){
+
+var c=document.getElementById("demo").innerHTML;
+var d=c.replace("AAA","bbb")
+document.getElementById("demo").innerHTML=d;
+}
+</script>
+</head>
+<body>
+<p id="demo">AAA和AAA</p>
+<button onclick="a()" >替换</button>
+</body>
+</html>
+<html>//bbb和AAA
+
+默认地，replace() 对大小写敏感。因此不对匹配 MICROSOFT：
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function a(){
+
+var c=document.getElementById("demo").innerHTML;
+var d=c.replace("AAA","bbb")
+document.getElementById("demo").innerHTML=d;
+}
+</script>
+</head>
+<body>
+<p id="demo">aaa</p>
+<button onclick="a()" >替换</button>
+</body>
+</html>
+<html>//aaa  //此例无效，因为 aaa 为小写。
+
+
+
+如需执行大小写不敏感的替换，请使用正则表达式 /i（大小写不敏感）：
+
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function a(){
+
+var c=document.getElementById("demo").innerHTML;
+var d=c.replace(/AAA/i,"bbb")
+document.getElementById("demo").innerHTML=d;
+}
+</script>
+</head>
+<body>
+<p id="demo">aaa</p>
+<button onclick="a()" >替换</button>
+</body>
+</html>
+<html>//bbb
+
+
+请注意正则表达式不带引号。
+
+如需替换所有匹配，请使用正则表达式的 g 标志（用于全局搜索）：
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function a(){
+
+var c=document.getElementById("demo").innerHTML;
+var d=c.replace(/a/g,"学")
+document.getElementById("demo").innerHTML=d;
+}
+</script>
+</head>
+<body>
+<p id="demo">a和acw和abc</p>
+<button onclick="a()" >替换</button>
+</body>
+</html>
+<html>//学和学cw和学bc
+
+
+
+16.转换大写和小写
+
+a.toUpperCase()将小字母字符串转换为大写字母
+注意：toUpperCase单词是驼峰式学法
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function a(){
+
+var c=document.getElementById("demo").innerHTML;
+var d=c.toupperCase("a")
+document.getElementById("demo").innerHTML=d;
+}
+</script>
+</head>
+<body>
+<p id="demo">aaaa</p>
+<button onclick="a()" >替换</button>
+</body>
+</html>
+<html>
+
+b.toLowerCase()将大字母字符串转换为小写字母（toLowerCase()）
+
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function a(){
+
+var c=document.getElementById("demo").innerHTML;
+var d=c.toLowerCase();
+document.getElementById("demo").innerHTML=d;
+}
+</script>
+</head>
+<body>
+<p id="demo">AAAA</p>
+<button onclick="a()" >替换</button>
+</body>
+</html>
+<html>
+
+
+17.拼接字符串concat()
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function a(){
+var f="kkkk"
+var d=c.concat(1111);   //可以传入空格""+1111
+document.getElementById("demo").innerHTML=d;
+}
+</script>
+</head>
+<body>
+<p id="demo"></p>
+<button onclick="a()" >替换</button>
+</body>
+</html>//kkkk1111   或kkkk   1111
+
+
+
+concat() 方法可用于代替加运算符。下面两行是等效的：
+
+实例
+var text = "Hello" + " " + "World!";
+var text = "Hello".concat(" ","World!");
+
+ 所有字符串方法都会返回新字符串。它们不会修改原始字符串。
+
+正式地说：字符串是不可变的：字符串不能更改，只能替换。
+
+
+18.string.trim()//去空格
+
+trim() 方法删除字符串两端的空白符：
+
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function a(){
+var str = "     Hello World!     ";
+  
+alert(str.trim());
+}
+</script>
+</head>
+<body>
+<p><strong>注释：</strong>Internet Explorer 8 或更低版本不支持 trim() 方法。</p>
+
+<button onclick="a()" >trim方法使用</button>
+</body>
+</html>//会弹出没有空格的Hello World!
+注意：<IE 8 不支持 String.trim()。您可搭配正则表达式使用 replace() 方法代替：
+str.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, ''));
+
+
+
+19.提取字符串
+
+charAt(要截取的索引位置)
+charCodeAt(要截取的索引位置)
+
+
+a.charAt() 方法
+
+charAt() 方法返回字符串中指定下标（位置）的字符串：
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function a(){
+var str = "HelloWorld";
+  
+var c=str.charAt(2)
+document.getElementById("demo").innerHTML=c;
+}
+</script>
+</head>
+<body>
+<p id="demo"></p>
+
+<button onclick="a()" >charAt方法使用</button>
+</body>
+</html>//l
+
+b.charCodeAt() 方法
+
+charCodeAt() 方法返回字符串中指定索引的字符 unicode 编码：
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function a(){
+var str = "HelloWorld";
+  
+var c=str.charCodeAt(2)
+document.getElementById("demo").innerHTML=c;
+}
+</script>
+</head>
+<body>
+<p id="demo"></p>
+
+<button onclick="a()" >charCodeAt方法使用</button>
+</body>
+</html>//108
+
+
+20.属性访问（Property Access）
+
+ECMAScript 5 (2009) 允许对字符串的属性访问 [ ]：
+
+实例
+var str = "HELLO WORLD";
+str[0];  
+使用属性访问有点不太靠谱：
+ ?不适用 Internet Explorer 7 或更早的版本
+ ?它让字符串看起来像是数组（其实并不是）
+ ?如果找不到字符，[ ] 返回 undefined，而 charAt() 返回空字符串。
+ ?它是只读的。str[0] = "A" 不会产生错误（但也不会工作！）
+ 
+实例
+var str = "HELLO WORLD";
+str[0] = "A";             // 不产生错误，但不会工作
+str[0];                   // 返回 H
+
+如果您希望按照数组的方式处理字符串，可以先把它转换为数组。
+
+
+
+21.将字符串转换为数组（split）
+
+可以通过 split() 将字符串转换为数组：
+
+var txt = "a,b,c,d,e";   // 字符串
+txt.split(",");          // 用逗号分隔
+
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function a(){
+var txt = "a,b,c,d,e";   // 字符串
+var b=txt.split(","); 
+document.getElementById("demo").innerHTML=b[1];
+}
+</script>
+</head>
+<body>
+<p id="demo"></p>
+
+<button onclick="a()" >charCodeAt方法使用</button>
+</body>
+</html>//b
+
+如果省略分隔符，被返回的数组将包含 index [0] 中的整个字符串。
+
+如果分隔符是 ""，被返回的数组将是间隔单个字符的数组：
+
+实例
+var txt = "Hello";       // 字符串
+txt.split("");       
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function a(){
+var txt = "Hello";       // 字符串
+var c=txt.split("");
+var d="";
+var i;
+ for(i=0;i<c.length;i++){
+ d+=c[i]+"<br/>"
+ }
+
+document.getElementById("demo").innerHTML=d;
+}
+</script>
+</head>
+<body>
+<p id="demo"></p>
+
+<button onclick="a()" >split方法使用</button>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

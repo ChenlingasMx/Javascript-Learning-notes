@@ -1,0 +1,278 @@
+JavaScript类型转换：
+Number转换为数值，string转换为字符串，Boolean转换为布尔值。
+
+1.JavaScript 数据类型
+JavaScript 中有五种可包含值的数据类型：
+
+字符串（string）
+数字（number）
+布尔（boolean）
+对象（object）
+函数（function）
+有三种对象类型：
+
+对象（Object）
+日期（Date）
+数组（Array）
+同时有两种不能包含值的数据类型：
+
+null
+undefined
+
+
+2.typeof 运算符
+您可以使用 typeof 运算符来确定 JavaScript 变量的数据类型。
+
+实例
+typeof "Bill"                 // 返回 "string"
+typeof 3.14                   // 返回 "number"
+typeof NaN                    // 返回 "number"
+typeof false                  // 返回 "boolean"
+typeof [1,2,3,4]              // 返回 "object"
+typeof {name:'Bill', age:62}  // 返回 "object"
+typeof new Date()             // 返回 "object"
+typeof function () {}         // 返回 "function"
+typeof myCar                  // 返回 "undefined" *
+typeof null                   // 返回 "object"
+
+
+请注意：
+
+NaN 的数据类型是数值
+数组的数据类型是对象
+日期的数据类型是对象
+null 的数据类型是对象
+未定义变量的数据类型是 undefined
+尚未赋值的变量的数据类型也是 undefined
+您无法使用 typeof 去判断 JavaScript 对象是否是数组（或日期）。
+
+
+3.typeof 的数据类型
+typeof 运算符不是变量。它属于运算符。运算符（比如 + - * /）没有数据类型。
+
+但是，typeof 始终会返回字符串（包含运算数的类型）。
+
+
+4.constructor属性
+constructor 属性返回所有 JavaScript 变量的构造器函数。
+
+
+
+实例
+"Bill".constructor                 // 返回 "function String()  { [native code] }"
+(3.14).constructor                 // 返回 "function Number()  { [native code] }"
+false.constructor                  // 返回 "function Boolean() { [native code] }"
+[1,2,3,4].constructor              // 返回 "function Array()   { [native code] }"
+{name:'Bill', age:62}.constructor  // 返回" function Object()  { [native code] }"
+new Date().constructor             // 返回 "function Date()    { [native code] }"
+function () {}.constructor         // 返回 "function Function(){ [native code] }"
+
+
+您可以通过检查 constructor 属性来确定某个对象是否为数组（包含单词 "Array"）：
+实例
+function isArray(myArray) {
+    return myArray.constructor.toString().indexOf("Array") > -1;
+}
+
+实例
+function isArray(myArray) {
+    return myArray.constructor === Array;
+}
+
+
+您可以通过检查 constructor 属性来确定某个对象是否为日期（包含单词 "Date"）：
+实例
+function isArray(myArray) {
+    return myArray.constructor.toString().indexOf("Date") > -1;
+}
+
+实例
+function isArray(myArray) {
+    return myArray.constructor === Array;
+}
+
+
+5.JavaScript 类型转换
+JavaScript 变量能够被转换为新变量以及另一种数据类型：
+
+通过使用 JavaScript 函数
+通过 JavaScript 本身自动转换
+把数值转换为字符串
+全局方法 String() 能够把数字转换为字符串。
+
+它可用于任意类型的数字、文字、变量或表达式：
+
+实例
+String(x)         // 从数值变量 x 返回字符串
+String(123)       // 从数值文本 123 返回字符串
+String(100 + 23)  // 从表达式中的数值返回字符串
+
+
+数字方法 toString() 同理。
+
+实例
+x.toString()
+(123).toString()
+(100 + 23).toString()
+
+更多有用的数值转化为字符串的方法
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript 数字方法</h2>
+
+<p>toString() 方法把数字转换为字符串。</p>
+
+<p id="demo"></p>
+
+<script>
+var x = 123.563;
+document.getElementById("demo").innerHTML =
+   x.toFixed()//toFixed
+
+返回字符串，对数字进行舍入，并使用指定位数的小数来写。
+
+</script>
+
+</body>
+</html>//124
+
+
+
+
+6.把布尔转换为字符串
+全局方法 String() 能够将布尔转换为字符串。
+
+String(false)        // 返回 "false"
+String(true)         // 返回 "true" 
+布尔方法 toString() 同理。
+
+false.toString()     // 返回 "false"
+true.toString()      // 返回 "true"
+
+
+
+
+7.把日期转换为字符串
+全局方法 String() 可将日期转换为字符串。
+
+String(Date())      // 返回 "Mon Jul 08 2019 06:56:49 GMT+0800 (中国标准时间)"
+日期方法 toString() 同理。
+
+实例
+Date().toString()   // 返回 "Mon Jul 08 2019 06:56:49 GMT+0800 (中国标准时间)"
+
+
+
+
+
+8.把字符串转换为数值
+全局方法 Number() 可把字符串转换为数字。
+
+包含数字的字符串（比如 "3.14"）转换为数字（比如 3.14）。
+
+空的字符串转换为 0。
+
+其他字符串将转换为 NaN（Not a number，不是数字）。
+
+Number("3.14")    // 返回 3.14
+Number(" ")       // 返回 0
+Number("")        // 返回 0
+Number("99 88")   // 返回 NaN
+
+更多可用于把字符串转换为数字的方法
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript 数字方法</h2>
+
+<p>toString() 方法把数字转换为字符串。</p>
+
+<p id="demo"></p>
+
+<script>
+var x = 123.111110;
+var y= 123.11;
+document.getElementById("demo").innerHTML =parseInt(x)
+document.getElementById("demo").innerHTML =parseFloat(y)
+   
+
+</script>
+
+</body>
+</html>//x=123   y=123.11
+
+
+9.一元 + 运算符
+一元的 + 运算符可用于把变量转换为数字：
+
+实例
+var y = "5";      // y 是字符串
+var x = + y;      // x 是数字
+
+
+如果无法转换变量，则仍会成为数字，但是值为 NaN（Not a number）：
+
+实例
+var y = "Bill";   // y 是字符串
+var x = + y;      // x 是数字 (NaN)
+
+
+10.把布尔转换数值
+全局方法 Number() 也可把布尔转换为数字。
+
+Number(false)     // 返回 0
+Number(true)      // 返回 1
+把日期转换为数字
+全局方法 Number() 可用于把日期转换为数字。
+
+d = new Date();
+Number(d)          // 返回 1562540209162
+日期方法 getTime() 同理。
+
+d = new Date();
+d.getTime()        // 返回 1562540209162
+
+
+11.自动类型转换
+如果 JavaScript 尝试操作一种“错误”的数据类型，它会试图将该值转换为“正确”的类型。
+
+结果并不总是你所期望的：
+
+5 + null    // 返回 5         因为 null 被转换为 0
+"5" + null  // 返回 "5null"   因为 null 被转换为  "null"
+"5" + 2     // 返回 52        因为 2 被转换为 "2"
+"5" - 2     // 返回 3         因为 "5" 被转换为 5
+"5" * "2"   // 返回 10        因为 "5" 和 "2" 被转换为 5 和 2
+
+
+12.自动字符串转换
+JavaScript 自动调用变量的 toString() 函数，当您试图“输出”对象或变量时：
+
+document.getElementById("demo").innerHTML = myVar;
+
+// 如果 myVar = {name:"Fjohn"}  // toString 转换为 "[object Object]"
+// 如果 myVar = [1,2,3,4]       // toString 转换为 "1,2,3,4"
+// 如果 myVar = new Date()      // toString 转换为 "Mon Jul 08 2019 06:56:49 GMT+0800 (中国标准时间)"
+数字和布尔也会被转换，但并不明显：
+
+// 如果 myVar = 123             // toString 转换为 "123"
+// 如果 myVar = true            // toString 转换为 "true"
+// 如果 myVar = false           // toString 转换为 "false"
+
+
+
+
+
+
+
+
+
+
+
+
+
+

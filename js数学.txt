@@ -1,0 +1,196 @@
+JavaScript Math 对象
+JavaScript Math 对象允许您对数字执行数学任务。
+
+例子：
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Math.PI</h1>
+
+<p>Math.PI 返回圆周长与直径的比率：</p>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = Math.PI;
+</script>
+
+</body>
+</html>//3.141592653589793
+
+
+1.round()方法，用来四舍五入  Math.round()
+例子
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Math.PI</h1>
+
+<p>Math.PI 返回圆周长与直径的比率：</p>
+
+<p id="demo"></p>
+
+<p id="demo1"></p>
+
+<script>
+var a=6.8,b=3.4;
+
+document.getElementById("demo").innerHTML = Math.round(a);
+document.getElementById("demo1").innerHTML = Math.round(b);
+</script>
+
+</body>
+</html>//7和3
+
+
+
+2.Math.pow()     Math.pow(参数，几次方)求幂
+Math.pow(x, y) 的返回值是 x 的 y 次幂：
+
+例子：我要求3的3次方
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Math.PI</h1>
+
+<p>Math.PI 返回圆周长与直径的比率：</p>
+
+<p id="demo"></p>
+
+
+<script>
+var a=3;
+
+document.getElementById("demo").innerHTML = Math.pow(a,3);
+
+</script>
+
+</body>
+</html>
+
+3.Math.sqrt()求平方根  Math.sqrt()
+例：我要求4的平方根
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Math.PI</h1>
+
+<p>Math.PI 返回圆周长与直径的比率：</p>
+
+<p id="demo"></p>
+
+
+<script>
+var a=4;
+
+document.getElementById("demo").innerHTML = Math.sqrt(a);
+
+</script>
+
+</body>
+</html>//2
+
+
+4.Math.abs()求绝对值
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Math.PI</h1>
+
+<p>Math.PI 返回圆周长与直径的比率：</p>
+
+<p id="demo"></p>
+
+5.Math.ceil()  Math.ceil()
+Math.ceil(x) 的返回值是 x 上舍入最接近的整数：
+
+实例
+Math.ceil(6.4);     // 返回 7
+
+
+6.Math.floor()  Math.floor()
+Math.ceil(x) 的返回值是 x 下舍入最接近的整数：
+
+实例
+Math.ceil(6.9);     // 返回 6
+
+
+7.Math.sin()
+Math.sin(x) 返回角 x（以弧度计）的正弦（介于 -1 与 1 之间的值）。
+
+如果您希望使用角度替代弧度，则需要将角度转换为弧度：
+
+Angle in radians = Angle in degrees x PI / 180.
+实例
+Math.sin(90 * Math.PI / 180);     // 返回 1（90 度的正弦）
+
+
+
+8.Math.cos()
+Math.cos(x) 返回角 x（以弧度计）的余弦（介于 -1 与 1 之间的值）。
+
+如果您希望使用角度替代弧度，则需要将角度转换为弧度：
+
+Angle in radians = Angle in degrees x PI / 180.
+实例
+Math.cos(0 * Math.PI / 180);     // 返回 1（0 度的余弦）
+
+
+9.Math.max()：求最大值
+例子：Math.max(0, 450, 35, 10, -8, -300, -78);  // 返回 450
+
+
+10.Math.min()：求最小值
+例子：Math.max(0, 450, 35, 10, -8, -300, -78);  // 返回 -300
+
+11.Math.rondom():求随机数：Math.random() 返回 0 与 1 之间的随机值
+
+<script>
+document.getElementById("demo").innerHTML = Math.random();
+</script>
+
+如果要把随机数返回1到10，就将随机数扩大10
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Math.random()</h1>
+
+<p>Math.random() 返回 0 与 1 之间的随机值：</p>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = Math.random()*10;
+</script>
+
+</body>
+</html>
+
+如果要把随机数返回1到10，并且还必须返回整数的随机数
+
+两个步骤：
+（1）：用Math.floor()方法，向下取整。
+（2）：将取整后的数扩大10倍
+例子：
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Math.random()</h1>
+
+<p>Math.random() 返回 0 与 1 之间的随机值：</p>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML =Math.floor( Math.random()*10);
+</script>
+
+</body>
+</html>

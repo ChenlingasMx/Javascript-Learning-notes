@@ -1,0 +1,19 @@
+1.javascript是属于HTML和web的编程语言，编程令计算机完成您需要它们的工作
+
+例子：我需要获取当前时间
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>我的第一段 JavaScript</h2>
+
+<button type="button"
+onclick="document.getElementById('demo').innerHTML = Date()">
+点击这里来显示日期和时间
+</button>
+
+<p id="demo"></p>
+
+</body>
+</html>
+

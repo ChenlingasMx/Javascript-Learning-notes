@@ -1,0 +1,141 @@
+javascript 提升（hoisting）
+
+提升（Hoisting）是 JavaScript 将声明移至顶部的默认行为。
+
+JavaScript 声明会被提升
+在 JavaScript 中，可以在使用变量之后对其进行声明。
+
+换句话说，可以在声明变量之前使用它。
+
+例子 1 与例子 2 的结果相同：
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+x=5;
+
+var x;//使用变量之后对其声明
+
+alert(x);
+</script>
+
+</body>
+</html>//可以弹出5
+
+例子2.
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+
+var x;//使用变量之前对其声明
+x=5;
+
+
+alert(x);
+</script>
+
+</body>
+</html>//可以弹出5
+
+为了理解这一点，您必须理解术语 "hoisting"。
+
+Hoisting 是 JavaScript 将所有声明提升到当前作用域顶部的默认行为（提升到当前脚本或当前函数的顶部）
+
+let和const关键字
+
+用let和const声明的变量和常量不会被提升！
+
+
+JavaScript 初始化不会被提升
+JavaScript 只提升声明，而非初始化。
+
+例子 1 与例子 2 的结果不相同：
+
+
+例子 1 
+
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+var a1=5; // 初始化 a1
+var a=5; // 初始化 a
+alert(a+a1);
+</script>
+
+</body>
+</html>
+
+
+例子 2 
+
+
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+var a1=5; // 初始化 a1
+alert(a+a1);
+var a=5; // 初始化 a
+</script>
+
+</body>
+</html>//结果会弹出NaN，因为a还未被声明，就已经调用了，类型是undefined，a1是number类型，两个加起来是NaN
+
+
+最后一个例子中的 y 仍然是未定义能说得通吗？
+
+这是因为只有声明（var a）而不是初始化（=5）被提升到顶部。
+
+由于 hoisting，a 在其被使用前已经被声明，但是由于未对初始化进行提升，a 的值仍是未定义。
+
+例子 3 也一样：
+
+实例
+
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+var a1=5; // 初始化 a1
+var a ;   //声明a
+alert(a+a1);
+ a=5; // 初始化 a
+</script>
+
+</body>
+</html>
+
+
+
+在顶部声明您的变量！
+Hoisting（对很多开发者来说）是 JavaScript 的一种未知的或被忽视的行为。
+
+如果开发者不理解 hoisting，程序也许会包含 bug（错误）。
+
+为了避免 bug，请始终在每个作用域的开头声明所有变量。
+
+由于这就是 JavaScript 解释代码的方式，请保持这个好习惯。
+
+严格模式(use strict)中的 JavaScript 不允许在未被声明的情况下使用变量。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

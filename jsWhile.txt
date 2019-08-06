@@ -1,0 +1,184 @@
+1.JavaScript While 循环
+
+只要条件为 true，循环能够一直执行代码块。
+
+2.While 循环
+while 循环会一直循环代码块，只要指定的条件为 true。
+
+语法
+while (条件) {
+    要执行的代码块
+}
+实例
+在下面的例子中，循环中的代码将运行，一遍又一遍，只要变量（i）小于 5：
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript while</h2>
+
+<p id="demo"></p>
+
+<script>
+var i=0;
+var txt="";//注意这个必须用空字符串先定义，不然在结果前面会多用undefined
+while(i<5){
+txt+=i+"<br/>"
+i++;
+}
+document.getElementById("demo").innerHTML=txt;
+</script>
+
+</body>
+</html>//0,1,2,3,4
+
+如果您忘了对条件中使用的变量进行递增，那么循环永不会结束。这会导致浏览器崩溃。
+
+3.Do/while循环	
+do/while 循环是 while 循环的变体。在检查条件是否为真之前，这种循环会执行一次代码块，然后只要条件为真就会重复循环。
+
+语法
+do {
+    要执行的代码块
+}
+
+while (条件);
+
+实例
+下面的例子使用了 do/while 循环。该循环会执行至少一次，即使条件为 false，因为代码块会在条件测试之前执行：
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript do ... while</h2>
+
+<p id="demo"></p>
+
+<script>
+var text = ""
+var i = 0;
+
+do {
+  text += "<br>数字是 " + i;
+  i++;
+}
+while (i < 10);  
+
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>//0,1,2,3,4,5,6,7,8,9
+
+
+4.while和do…while的区别：
+while和do…while语句都是循环语句，功能都差不多，唯一的区别在于检验条件的时间上。while语句在进入循环体之前要先判断条件是否成立，如果成立的话则进入循环体。
+而do…while语句则相反，是先执行循环体，然后再判断条件是否成立，如果成立的话则继续循环体，如果不成立则跳出循环，也就是说对于do…while语句，不管条件是否成立都要先执行至少一遍。
+
+例子：
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript do ... while</h2>
+
+<p id="demo"></p>
+
+<script>
+var text = ""
+var i = "aa";
+
+
+while (i < 10){
+
+ text += "<br>数字是 " + i;
+  i++;
+} 
+
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>//这个例子，会什么都打印不出来。因为i是字符串，不能和数字10进行比较。所有条件始终不执行。
+
+
+例子2.
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript do ... while</h2>
+
+<p id="demo"></p>
+
+<script>
+var text = ""
+var i = "aa";
+
+do{
+
+text += "<br>数字是 " + i;
+  i++;
+}
+while (i < 10);
+
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html> //将会打印出aa
+
+
+不要忘记对条件中所用变量进行递增，否则循环永不会结束！
+
+5.比较 For 与 While
+如果您已经阅读了之前关于循环的章节，您会发现 while 循环与 for 循环相当类似，其中的语句 1 和 语句 2 都可以省略。
+
+本例中的循环使用 for 循环来提取 cars 数组中的汽车品牌：
+
+实例
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+var cars = ["BMW", "Volvo", "porsche", "Ford"];
+var i = 0;
+var text = "";
+for (;cars[i];) {
+  text += cars[i] + "<br>";
+  i++;
+}
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
+
+
+本例中的循环使用 while 循环来提取 cars 数组中的汽车品牌：
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+var cars = ["BMW", "Volvo", "porsche", "Ford"];
+var i = 0;
+var text = "";
+while (i<cars.length) {
+  text += cars[i] + "<br>";
+  i++;
+}
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
+
+

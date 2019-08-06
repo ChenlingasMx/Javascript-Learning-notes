@@ -1,0 +1,173 @@
+1.JavaScript 设置日期方法。
+使用“设置日期”方法可以设置日期对象的日期值（年、月、日、小时、分钟、秒、毫秒）。
+
+2.日期设置方法
+设置方法用于设置日期的某个部分。下面是最常用的方法（按照字母顺序排序）：
+
+
+a.setFullYear() 方法
+setFullYear() 方法设置日期对象的年份。这个例子设置为 2020 年：
+
+实例
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript setFullYear()</h2>
+
+<p>setFullYear() 方法设置日期对象的年份：</p>
+
+<p id="demo"></p>
+
+<script>
+var d = new Date();
+d.setFullYear(2020);
+document.getElementById("demo").innerHTML = d;
+</script>
+
+</body>
+</html>//Sun Jul 05 2020 22:22:16 GMT+0800 (中国标准时间)
+注意:这个除了年会变化，其他的日期时间都和当前时间相仿。
+
+setFullYear() 方法可以选择设置月和日：
+
+实例
+<script>
+var d = new Date();
+d.setFullYear(2020, 11, 3);
+document.getElementById("demo").innerHTML = d;
+</script>//Thu Dec 03 2020 22:23:58 GMT+0800 (中国标准时间)
+注意：0是一月，11是十二月。
+
+b.setMonth() 方法
+setMonth() 方法设置日期对象的月份（0-11）：
+
+实例
+<script>
+var d = new Date();
+d.setMonth(11);
+document.getElementById("demo").innerHTML = d;
+</script>//Thu Dec 05 2019 22:42:36 GMT+0800 (中国标准时间)
+请注意，月份从 0 计数。十二月是 11：
+
+
+c.setDate() 方法
+setDate() 方法设置日期对象的日（1-31）：
+
+实例
+<script>
+var d = new Date();
+d.setDate(15);
+document.getElementById("demo").innerHTML = d;
+</script>//Mon Jul 15 2019 22:46:49 GMT+0800 (中国标准时间)
+
+
+
+setDate() 方法也可用于将天数添加到日期：
+实例
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript setDate()</h2>
+
+<p>setDate() 方法可用于向日期添加天数。</p>
+
+<p id="demo"></p>
+
+<script>
+var d = new Date();
+d.setDate(d.getDate() + 1);
+document.getElementById("demo").innerHTML = d;
+</script>
+
+</body>
+</html>//Sat Jul 06 2019 22:48:12 GMT+0800 (中国标准时间)
+
+setDate() 方法可用于向日期添加天数。
+
+
+
+d.setHours() 方法
+setHours() 方法设置日期对象的小时（0-23）：
+
+实例
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript setDate()</h2>
+
+<p>setDate() 方法可用于向日期添加天数。</p>
+
+<p id="demo"></p>
+
+<script>
+var d = new Date();
+d.setHours(26)
+document.getElementById("demo").innerHTML = d;
+</script>
+
+</body>
+</html>//时间将会在一天24小时上面加上2小时
+Sat Jul 06 2019 02:50:31 GMT+0800 (中国标准时间)
+
+
+
+e.setMinutes() 方法
+setMinutes() 方法设置日期对象的分钟（0-59）：
+
+实例
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript setMinutes()</h2>
+
+<p>setMinutes() 方法设置日期对象的分钟数（0-59）：</p>
+
+<p id="demo"></p>
+
+<script>
+var d = new Date();
+d.setMinutes(63);
+document.getElementById("demo").innerHTML = d;
+</script>
+
+</body>
+</html>//时间将会在一小时基础上小时上面加上3分钟
+
+
+
+f.setSeconds() 方法
+setSeconds() 方法设置日期对象的秒数（0-59）：
+
+实例
+<script>
+var d = new Date();
+d.setSeconds(30);
+document.getElementById("demo").innerHTML = d;
+</script>
+
+
+3.比较日期
+日期可以很容易地进行比较。
+
+下面的例子把今日与 2049 年 1 月 16 日进行比较：
+
+实例
+var today, someday, text;
+today = new Date();
+someday = new Date();
+someday.setFullYear(2049, 0, 16);
+
+if (someday > today) {
+  text = "今天在 2049 年 1 月 16 日之前";
+} else {
+  text = "今天在 2049 年 1 月 16 日之后";
+}
+document.getElementById("demo").innerHTML = text;
+
+//今天在 2049 年 1 月 16 日之前。
+
+注意：JavaScript 从 0 到 11 计数月份。1 月是 0。12 月是 11。

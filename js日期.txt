@@ -1,0 +1,204 @@
+JavaScript 日期
+
+
+1.new Date() 用当前日期和时间创建新的日期对象：
+例子：求当前时间  （new Date()）
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript new Date()</h2>
+
+<p id="demo"></p>
+
+<script>
+var d=new Date();
+document.getElementById("demo").innerHTML=d;
+</script>
+
+</body>
+</html>
+
+2.JavaScript 日期输出
+默认情况下，JavaScript 将使用浏览器的时区并将日期显示为全文本字符串：
+Wed Jul 03 2019 23:46:54 GMT+0800 (中国标准时间)
+注意：日期对象是静态的。计算机时间正在滴答作响，但日期对象不会。
+
+
+new Date(year, month, ...)
+new Date(year, month, ...) 用指定日期和时间创建新的日期对象。
+
+7个数字分别指定年、月、日、小时、分钟、秒和毫秒（按此顺序）：
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript new Date()</h2>
+
+<p>使用 new Date(7 numbers)，使用指定的日期和时间创建一个新的日期对象：</p>
+
+<p id="demo"></p>
+
+<script>
+var d = new Date(2019, 12, 25, 10, 33, 30, 0);
+document.getElementById("demo").innerHTML = d;
+</script>
+
+</body>
+</html>
+Sat Jan 25 2020 10:33:30 GMT+0800 (中国标准时间) 换成中文是：2020 1,25 10:33:30 
+
+
+注释：JavaScript 从 0 到 11 计算月份。
+
+一月是 0。十二月是11。
+7个数字指定年、月、日、小时、分钟、秒、毫秒：
+6个数字指定年、月、日、小时、分钟、秒：
+5个数字指定年、月、日、小时和分钟：
+4个数字指定年、月、日和小时：
+3 个数字指定年、月和日：
+2个数字指定年份和月份：
+注意：时间不能只有一个参数，您不能省略月份。如果只提供一个参数，则将其视为毫秒。
+
+例子：
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript new Date()</h2>
+
+<p>一个参数会被解释为：new Date(milliseconds)。</p>
+
+<p id="demo"></p>
+
+<script>
+var d = new Date(2018);
+document.getElementById("demo").innerHTML = d;
+</script>
+
+</body>
+</html> //Thu Jan 01 1970 08:00:02 GMT+0800 (中国标准时间)
+
+
+
+3.上个世纪
+一位和两位数年份将被解释为 19xx 年：
+
+实例
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript new Date()</h2>
+
+<p>两位年份将被解释为 19xx：</p>
+
+<p id="demo"></p>
+
+<script>
+var d = new Date(10, 12, 25);
+document.getElementById("demo").innerHTML = d;
+</script>
+
+</body>
+</html>//年:在1900的基础上加10，下标从0开始，那么年为1911
+
+
+4.new Date(dateString)
+new Date(dateString) 从日期字符串创建一个新的日期对象：
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript new Date()</h2>
+
+<p>可以使用指定的日期和时间创建 Date 对象：</p>
+
+<p id="demo"></p>
+
+<script>
+var d = new Date("December 25, 2019 12:46:00");//月，日，年，时分秒
+document.getElementById("demo").innerHTML = d;
+</script>
+
+</body>
+</html>//Wed Dec 25 2019 12:46:00 GMT+0800 (中国标准时间)
+
+
+5.JavaScript 将日期存储为毫秒
+JavaScript 将日期存储为自 1970 年 1 月 1 日 00:00:00 UTC（协调世界时）以来的毫秒数。
+
+零时间是 1970 年 1 月 1 日 00:00:00 UTC。
+
+现在的时间是：1970 年 1 月 1 日之后的 1554166879383 毫秒。
+
+
+6.new Date(milliseconds毫秒)
+new Date(milliseconds) 创建一个零时加毫秒的新日期对象：
+
+例子：<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript new Date()</h2>
+
+<p>使用 new Date(<i>milliseconds</i>)，创建一个零时（January 1, 1970, 00:00:00 Universal Time）加毫秒的新日期对象：</p>
+
+<p id="demo"></p>
+
+<script>
+var d = new Date(0);
+document.getElementById("demo").innerHTML = d;
+</script>
+
+</body>
+</html>//Thu Jan 01 1970 08:00:00 GMT+0800 (中国标准时间)
+1970年 1 月 1 日加上100 000 000 000毫秒，大约是 1973 年 3 月 3 日：
+
+
+注意：一天（24 小时）是 86 400 000 毫秒。
+
+
+7.日期方法
+创建 Date 对象时，可以使用许多方法对其进行操作。
+
+日期方法允许您使用本地时间或 UTC（通用或 GMT）时间来获取和设置日期对象的年、月、日、小时、分钟、秒和毫秒。
+
+8.显示日期
+JavaScript（默认情况下）将以全文本字符串格式输出日期：
+
+Wed Mar 25 2015 08:00:00 GMT+0800 (中国标准时间)
+在 HTML 中显示日期对象时，会使用 toString() 方法自动转换为字符串。
+
+
+实例
+d = new Date();
+document.getElementById("demo").innerHTML = d;
+等同于：
+
+d = new Date();
+document.getElementById("demo").innerHTML = d.toString();
+
+9.toDateSting()方法作用是：使时间更容易读。
+例子：
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript toDateString()</h2>
+
+<p>toDateString() 方法将日期转换为日期字符串：</p>
+
+<p id="demo"></p>
+
+<script>
+var d = new Date();
+document.getElementById("demo").innerHTML = d.toDateString();
+</script>
+
+</body>
+</html>//Thu Jul(7) 04 2019
+

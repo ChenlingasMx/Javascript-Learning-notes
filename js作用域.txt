@@ -1,0 +1,167 @@
+JavaScript 作用域
+作用域指的是您有权访问的变量集合。
+
+1.JavaScript 函数作用域
+在 JavaScript 中有两种作用域类型：
+
+局部作用域
+全局作用域
+JavaScript 拥有函数作用域：每个函数创建一个新的作用域。
+
+作用域决定了这些变量的可访问性（可见性）。
+
+函数内部定义的变量从函数外部是不可访问的（不可见的）。
+
+
+2.局部 JavaScript 变量
+在 JavaScript 函数中声明的变量，会成为函数的局部变量。
+
+局部变量的作用域是局部的：只能在函数内部访问它们。
+例子：
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 局部作用域</h1>
+
+<p>myFunction() 之外的 carName 未定义。</p>
+
+<script>
+function a(){
+var b=2
+alert(b)}
+a();
+alert(typeof(b))
+</script>
+
+</body>
+</html>//第一次会弹出2，第二次会弹出undefined。因为b是局部变量，它的作用域是局部的，只能在函数内部访问它们。
+
+
+
+3.由于只能在函数内部识别局部变量，因此能够在不同函数中使用同名变量。
+
+在函数开始时会创建局部变量，在函数完成时会删除它们。
+例子：
+<script>
+function a(){
+var b=2
+alert(b)}
+a();
+var b=3
+alert(typeof(b))
+</script>
+
+
+4.全局 JavaScript 变量
+函数之外声明的变量，会成为全局变量。
+
+全局变量的作用域是全局的：网页的所有脚本和函数都能够访问
+例子：
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 全局作用域</h1>
+
+<p>可以从任何脚本或函数中访问全局变量。</p>
+
+<script>
+var carName = 3;
+myFunction();
+
+function myFunction() {
+   alert(carName )
+}
+</script>
+
+</body>
+</html>//会弹出一个3
+
+
+5.JavaScript 变量
+在 JavaScript 中，对象和函数也是变量。
+
+作用域决定了从代码不同部分对变量、对象和函数的可访问性。
+
+6.自动全局
+如果您为尚未声明的变量赋值，此变量会自动成为全局变量。
+
+这段代码将声明一个全局变量 carName，即使在函数内进行了赋值。
+
+例子：<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 自动全局</h1>
+
+<p>如果您向未声明的变量赋值，它会自动成为全局变量：</p>
+
+<p id="demo"></p>
+
+<script>
+myFunction();
+
+// 此处的代码可以把 carName 作为全局变量使用。
+document.getElementById("demo").innerHTML = "我可以显示 " + carName;
+
+function myFunction() {
+    carName = "porsche";
+}
+</script>
+
+</body>
+</html>//因为carName ，没有被var声明，被视为一个全局变量。
+
+
+7.严格模式
+所有现代浏览器都支持以“严格模式”运行 JavaScript。
+
+在“严格模式”中不会自动创建全局变量。
+
+
+8.HTML 中的全局变量
+通过 JavaScript，全局作用域形成了完整的 JavaScript 环境。
+
+在 HTML 中，全局作用域是 window。所有全局变量均属于 window 对象。
+
+实例
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 作用域</h1>
+
+<p>在 HTML 中，通过 <b>var</b> 定义的全局变量，会成为 window 变量。</p>
+
+<p id="demo"></p>
+
+<script>
+var carName = "porsche";
+
+// code here can use window.carName
+document.getElementById("demo").innerHTML = "我可以显示 " + window.carName;
+</script>
+
+</body>
+</html>
+注意：因为window是默认的，可以省略不写。
+
+警告
+除非有意为之，否则请勿创建全局变量。
+
+您的全局变量（或函数）能够覆盖 window 变量（或函数）。
+
+任何函数，包括 window 对象，能够覆盖您的全局变量和函数。
+
+
+
+9.JavaScript 变量的有效期
+JavaScript 变量的有效期始于其被创建时。
+局部变量会在函数完成时被删除。
+全局变量会在宁关闭页面时被删除
+
+10.函数参数
+函数参数也是函数内的局部变量。
+
+
