@@ -1,0 +1,560 @@
+JavaScript 常见错误
+意外使用赋值运算符
+如果程序员在 if 语句中意外使用赋值运算符（=）而不是比较运算符（===），JavaScript 程序可能会产生一些无法预料的结果。
+
+这条 if 语句返回 false（正如预期），因为 x 不等于 10：
+例子：
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+var a=0
+document.getElementById("demo").innerHTML=Boolean(a==10)
+</script>
+
+</body>
+</html>//false
+
+这条 if 语句返回 true（也许不像预期），因为 10 为 true：
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+var a=0
+document.getElementById("demo").innerHTML=Boolean(a=10)
+</script>
+
+</body>
+</html>//true
+
+
+这条 if 语句返回 false（也许不像预期），因为 0 为 false：
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+var a=0
+document.getElementById("demo").innerHTML=Boolean(a=10)
+</script>
+
+</body>
+</html>//false
+
+
+赋值总是返回赋值的值。
+
+
+在严格比较中，数据类型确实重要。这条 if 语句返回 false：
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+var a=10
+var b="10"
+
+document.getElementById("demo").innerHTML=Boolean(a===b)
+
+</script>
+
+</body>
+</html>//false,===比较的是值和类型都要相等，==只比较值是否相等。
+
+
+
+有一个常见的错误是忘记在 switch 语句中使用严格比较：
+
+这条 switch 语句会显示提示框：
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+var x = 10;
+switch(x) {
+  case 10: alert("Hello");
+}
+</script>
+
+</body>
+</html>//如果是这样，可以弹出hello
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+var x = 10;
+switch(x) {
+  case “10”: alert("Hello");
+}
+</script>
+
+</body>
+</html>//不能弹出hello，因为一个是数字类型，一个是字符串。
+
+
+令人困惑的加法和级联
+加法用于加数值。
+
+级联（Concatenation）用于加字符串。
+
+在 JavaScript 中，这两种运算均使用相同的 + 运算符。
+
+正因如此，将数字作为数值相加，与将数字作为字符串相加，将产生不同的结果：
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+var x = 6+10 + "5"+6+2;
+document.getElementById("demo").innerHTML = x;
+</script>
+
+</body>
+</html>//16562，如果字符串前面，有数相加，则看着数字相加，如果字符串后面，有数相加，则加号看作连接符。
+
+</body>
+</html>
+
+
+
+如果是两个变量相加，很难预测结果：
+
+var x = 10;
+var y = 5;
+var z = x + y;            // z 中的结果是 15
+
+var x = 10;
+var y = "5";
+var z =  x + y;            // z 中的结果是 "105"
+
+
+
+令人误解的浮点
+JavaScript 中的数字均保存为 64 位的浮点数（Floats）。
+
+所有编程语言，包括 JavaScript，都存在处理浮点值的困难：
+
+var x = 0.1;
+var y = 0.2;
+var z = x + y             // z 中的结果并不是 0.3，而结果是0.30000000000000004
+
+为了解决上面的问题
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+var x = 0.1;
+var y = 0.2;
+var z = (x * 10 + y *10) / 10;
+document.getElementById("demo").innerHTML = z;
+</script>
+
+</body>
+</html>//两个数都先扩大10倍。在除去10.z 中的结果将是 0.3
+
+
+对 JavaScript 字符串换行
+JavaScript 允许您把一条语句换行为两行：
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML =
+"Hello World!";
+</script>
+
+</body>
+</html>
+
+但是，在字符串中间来换行是不对的：
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML ="Hello 
+World!";
+</script>
+
+</body>
+</html>//将不会显示出Hello World!
+
+
+如果，必须要在字符串中间来换行，则需要加上反斜杠“\”
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML ="Hello 
+World!";
+</script>
+
+</body>
+</html>//将不会显示出Hello World!
+
+
+
+错位的分号
+因为一个错误的分号，此代码块无论 x 的值如何都会执行：
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+var x = 5;
+if (x == 19);
+{
+document.getElementById("demo").innerHTML = "Hello";
+}
+</script>
+
+</body>
+</html>//hello
+
+
+
+对 return 语句进行换行
+在一行的结尾自动关闭语句是默认的 JavaScript 行为。
+
+正因如此，下面两个例子返回相同的结果：
+
+例子 1
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = myFunction(55);
+function myFunction(a) {
+  var power = 10
+  return a * power
+}
+</script>
+
+</body>
+</html>//550，没有分号，在一行的结尾自动关闭语句
+
+例子 2
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = myFunction(55);
+function myFunction(a) {
+  var power = 10；
+  return a * power；
+}
+</script>
+
+</body>
+</html>//550
+
+
+JavaScript 也允许您将一条语句换行为两行。
+
+正因如此，例子 3 也将返回相同的结果：
+
+例子 3
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = myFunction(55);
+function myFunction(a) {
+  var 
+power = 10；
+  return a * power；
+}
+</script>
+
+</body>
+</html>//550
+
+但是，如果把 return 语句换行为两行会发生什么呢：
+
+例子 4
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = myFunction(55);
+function myFunction(a) {
+  var
+  power = 10;
+  return
+  a * power;
+}
+</script>
+
+</body>
+</html>//undefined
+
+
+
+此函数将返回 undefined！
+
+为什么呢？因为 JavaScript 认为你的意思是：
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = myFunction(55);
+function myFunction(a) {
+  var
+  power = 10;
+  return；
+  a * power;
+}
+</script>
+
+</body>
+</html>//会在return后面默认带上分号，自动关闭语句
+
+
+解释
+如果某条语句是不完整的：
+
+var
+JavaScript 将通过读取下一行来完成这条语句：
+
+power = 10;
+但是由于这条语句是完整的：
+
+return
+JavaScript 会自动关闭该语句：
+
+return;
+发生这种情况是因为，在 JavaScript 中，用分号来关闭（结束）语句是可选的。
+
+JavaScript 会在行末关闭 return 语句，因为它本身就是一条完整的语句。
+
+所以，绝不要对 return 语句进行换行。
+
+
+
+通过命名索引来访问数组
+很多编程语言支持带有命名索引的数组。
+
+带有命名索引的数组被称为关联数组（或散列）。
+
+JavaScript 不支持带有命名索引的数组。
+
+在 JavaScript 中，数组使用数字索引：
+
+实例
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 数组</h1>
+
+<p id="demo"></p>
+
+<script>
+var a=[];
+a[0]="1";
+a[1]="11";
+a[2]="111";
+a[3]="1111";
+document.getElementById("demo").innerHTML="数组长度是:"+a.length+"<br\>数组第一个下标的结果是："+a[0]
+</script>
+
+</body>
+</html>
+
+
+在 JavaScript 中，对象使用命名索引。
+
+如果您使用命名索引，那么在访问数组时，JavaScript 会将数组重新定义为标准对象。
+
+在自动重定义之后，数组方法或属性将产生未定义或非正确的结果：
+
+实例
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 数组</h1>
+<p id="demo"></p>
+
+<script>
+var person = [];
+person["firstName"] = "John";
+person["lastName"] = "Doe";
+person["age"] = 46; 
+document.getElementById("demo").innerHTML =
+person[0] + " " + person.length;
+</script>
+
+</body>
+</html>//undefined 0
+
+用逗号来结束定义
+对象和数组定义中的尾随逗号在 ECMAScript 5 中是合法的。
+
+对象实例：
+person = {firstName:"Bill", lastName:"Gates", age:62,}
+数组实例：
+points = [35, 450, 2, 7, 30, 16,];
+警告！！
+Internet Explorer 8 会崩溃。
+
+JSON 不允许尾随逗号。
+
+JSON:
+person = {firstName:"Bill", lastName:"Gates", age:62}
+JSON:
+points = [35, 450, 2, 7, 30, 16];
+Undefined 不是 Null
+JavaScript 对象、变量、属性和方法可以是未定义的。
+
+此外，空的 JavaScript 对象的值可以为 null。
+
+这可能会使测试对象是否为空变得有点困难。
+
+您可以通过测试类型是否为 undefined，来测试对象是否存在：
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript</h2>
+
+<p>要测试对象是否不存在，请测试类型是否是 undefined：</p>
+
+<p id="demo"></p>
+
+<script>
+
+
+document.getElementById("demo").innerHTML = typeof myObj === "undefined";
+</script>
+
+</body>
+</html>//true
+
+
+但是您无法测试对象是否为 null，因为如果对象未定义，将抛出错误：
+
+不正确的：
+if (myObj === null)
+要解决此问题，必须测试对象是否为 null，而不是未定义。
+
+但这仍然会引发错误：
+
+不正确的：
+if (myObj !== null && typeof myObj !== "undefined")
+因此，在测试非 null 之前，必须先测试未定义：
+
+因此，在测试非 null 之前，必须先测试未定义：
+
+正确的：
+if (typeof myObj !== "undefined" && myObj !== null)
+
+期望块级范围
+JavaScript 不会为每个代码块创建新的作用域。
+
+很多编程语言都是如此，但是 JavaScript 并非如此。
+
+认为这段代码会返回 undefined，是新的 JavaScript 开发者的常见错误：
+
+实例
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript</h2>
+
+<p>JavaScript不会为每个代码块创建新的作用域。</p>
+
+<p>此代码将显示 i（10）的值，即使在 for 循环块之外：</p>
+
+<p id="demo"></p>
+
+<script>
+for (var i = 0; i < 10; i++) {
+
+}
+document.getElementById("demo").innerHTML = i;
+
+</script>
+
+</body>
+</html>//放在for外面，会显示10，里面显示9
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
