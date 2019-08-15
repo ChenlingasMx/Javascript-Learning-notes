@@ -1,0 +1,778 @@
+ECMAScript 5 - JavaScript 5
+
+ECMAScript 5 特性
+这些是 2009 年发布的新特性：
+
+"use strict" 指令
+String.trim()
+Array.isArray()
+Array.forEach()
+Array.map()
+Array.filter()
+Array.reduce()
+Array.reduceRight()
+Array.every()
+Array.some()
+Array.indexOf()
+Array.lastIndexOf()
+JSON.parse()
+JSON.stringify()
+Date.now()
+属性 Getter 和 Setter
+新的对象属性和方法
+
+
+ECMAScript 5 语法更改
+对字符串的属性访问 [ ]
+数组和对象字面量中的尾随逗号
+多行字符串字面量
+作为属性名称的保留字
+
+
+"use strict"指令
+"use strict "定义js代码应该以"严格模式"执行。
+例如,使用严格模式，不能使用未声明的变量。
+您可以在所有程序中使用严格模式。他可以帮助您编写更清晰的代码，例如阻止您使用未声明的变量。
+
+“use strict” 只是一个字符串表达式。旧浏览器如果不理解它们就不会抛出错误。
+
+请阅读 JS 严格模式 中的更多内容。
+
+
+
+string.trim()
+string.trim()删除字符串两端的空白字符。
+例子：
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript String.trim()</h1>
+
+<p>点击这个按钮来输出已删除空白字符的字符串。</p>
+
+<button onclick="myFunction()">试一试</button>
+
+<script>
+function myFunction(){
+
+var a="       就将计就计   ";
+
+alert(a.trim())
+
+}
+</script>
+
+</body>
+</html>//弹出“就将计就计”
+
+
+
+Array.isArray()
+isArray()方法检查对象是否为对象。
+实例
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Array.isArray()</h1>
+
+<p>单击按钮以检查“fruits”是否为数组。</p>
+
+<button onclick="myFunction()">试一试</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var fruits = ["Banana", "Orange", "Apple", "Mango"];
+  var x = document.getElementById("demo").innerHTML = Array.isArray(fruits);
+}
+</script>
+
+</body>
+</html>//点击按钮得到true
+
+
+Array.forEach()
+Array.forEach()方法为每一个数组元素调用一次函数
+
+实例
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Array.forEach()</h1>
+
+<p>为每个数组元素调用一次函数。</p>
+
+<p id="demo"></p>
+
+<script>
+var a="";
+var b=[1,2,3,4,5,6];
+b.forEach(hh);
+document.getElementById("demo").innerHTML=a;
+function hh(bh){
+a=a+bh+"<br/>"
+
+}
+</script>
+
+</body>
+</html>
+
+
+
+Array.map()
+这个例子给每个数组值乘以 2：
+
+实例
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Array.map()</h1>
+
+<p>通过对每个数组元素执行函数来创建新数组。</p>
+<p id="demo"></p>
+
+<script>
+var a="";
+var b=[1,2,3,4,5,6];
+b.map(hh);
+document.getElementById("demo").innerHTML=a;
+function hh(bh){
+a=a+bh*2++"<br/>"
+
+}
+</script>
+
+</body>
+</html>
+或者：
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Array.map()</h1>
+
+<p>通过对每个数组元素执行函数来创建新数组。</p>
+
+<p id="demo"></p>
+
+<script>
+var numbers1 = [45, 4, 9, 16, 25];
+var numbers2 = numbers1.map(myFunction);
+
+document.getElementById("demo").innerHTML = numbers2;
+
+function myFunction(value) {
+  return value * 2;
+}
+</script>
+
+</body>
+</html>
+
+
+Array.filter()
+此例用值大于 2 的元素创建一个新数组：
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Array.map()</h1>
+
+<p>通过对每个数组元素执行函数来创建新数组。</p>
+<p id="demo"></p>
+
+<script>
+var a="";
+var b=[1,2,3,4,5,6];
+var cc=b.filter(hh);
+document.getElementById("demo").innerHTML=cc;
+function hh(bh){
+return bh>2
+
+}
+</script>
+
+</body>
+</html>
+
+Array.reduce()
+这个例子确定数组中所有数的总和：
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Array.map()</h1>
+
+<p>通过对每个数组元素执行函数来创建新数组。</p>
+<p id="demo"></p>
+
+<script>
+
+var b=[1,2,3,4,5,6];
+var sum=b.reduce(hh);
+document.getElementById("demo").innerHTML=sum;
+function hh(bh,aa){
+return bh+aa
+
+}
+</script>
+
+</body>
+</html>//21
+
+
+Array.reduceRight()
+
+这个例子同样是确定数组中所有数的总和：
+
+实例
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Array.map()</h1>
+
+<p>通过对每个数组元素执行函数来创建新数组。</p>
+<p id="demo"></p>
+
+<script>
+
+var b=[1,2,3,4,5,6];
+var sum=b.reduceRight(hh);
+document.getElementById("demo").innerHTML=sum;
+function hh(bh,aa){
+return bh+aa
+
+}
+</script>
+
+</body>
+</html>//21
+
+
+如果是map，则，是求每个数组的值的和
+例子：
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Array.map()</h1>
+
+<p>通过对每个数组元素执行函数来创建新数组。</p>
+<p id="demo"></p>
+
+<script>
+
+var b=[0,2,5,4,5,6];
+var sum=b.map(hh);
+document.getElementById("demo").innerHTML=sum;
+function hh(bh,aa){
+return bh+aa
+
+}
+</script>
+
+</body>
+</html>//则，每个数组的值和它对应的下标相加：0,3,7,7,9,11
+
+
+Array.every():every() 方法检查所有数组值是否通过测试。属于Boolean类型
+
+这个例子检查是否所有值都超过 18：
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Array.map()</h1>
+
+<p>通过对每个数组元素执行函数来创建新数组。</p>
+<p id="demo"></p>
+
+<script>
+
+var b=[0,2,5,4,5,6];
+var sum=b.every(hh);
+document.getElementById("demo").innerHTML=sum;
+function hh(bh,aa){
+return bh>5
+
+}
+</script>
+
+</body>
+</html>//因为0，2，4都比5小，则返回false。
+
+
+
+Array.some():some() 方法检查某个数组值是否通过测试。属于Boolean类型
+
+这个例子检查是否某个值都超过 18：
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Array.map()</h1>
+
+<p>通过对每个数组元素执行函数来创建新数组。</p>
+<p id="demo"></p>
+
+<script>
+
+var b=[0,2,3,4,5,6];
+var sum=b.some(hh);
+document.getElementById("demo").innerHTML=sum;
+function hh(bh,aa){
+return bh>5
+
+}
+</script>
+
+</body>
+</html>/因为6这个数，比5大，所以返回true
+
+
+Array.indexOf()：第一个项目的位置是 0，第二个项目的位置是 1，以此类推。
+检索数组中的某个元素值并返回其位置：
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Array.map()</h1>
+
+<p>通过对每个数组元素执行函数来创建新数组。</p>
+<p id="demo"></p>
+
+<script>
+
+var b=[0,2,3,4,5,6];
+var sum=b.indexOf(7);
+document.getElementById("demo").innerHTML=sum;
+</script>
+
+</body>
+</html>//-1，因为未找到项目，Array.indexOf() 返回 -1。
+
+如果项目多次出现，则返回第一次出现的位置。
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Array.map()</h1>
+
+<p>通过对每个数组元素执行函数来创建新数组。</p>
+<p id="demo"></p>
+
+<script>
+
+var b=[0,2,3,4,4,6];
+var sum=b.indexOf(4);
+document.getElementById("demo").innerHTML=sum;
+</script>
+
+</body>
+</html>//3，因为第一个4出现的下标是3.
+
+
+Array.lastIndexOf()
+Array.lastIndexOf() 与 Array.indexOf() 类似，但是从数组结尾处开始检索。
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Array.lastIndexOf()</h1>
+
+<p>通过对每个数组元素执行函数来创建新数组。</p>
+<p id="demo"></p>
+
+<script>
+
+var b=[0,2,3,4,3,6];
+var sum=b.lastIndexOf(3);
+document.getElementById("demo").innerHTML=sum;
+</script>
+
+</body>
+</html>//4,，因为lastIndexOf它从数组结尾处开始检索。从左往右数，从右往左取。
+
+
+
+
+两种方法都接受作为检索起始位置的第二个参数。
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 字符串方法</h1>
+
+<p>indexOf() 方法接受第二个参数作为搜索的起始位置：</p>
+
+<p id="demo"></p>
+
+<script>
+var str = "abcdefg";
+var pos = str.indexOf("b",2);
+document.getElementById("demo").innerHTML = pos;
+</script>
+
+</body>
+</html>//-1
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript 字符串方法</h1>
+
+<p>indexOf() 方法接受第二个参数作为搜索的起始位置：</p>
+
+<p id="demo"></p>
+
+<script>
+var str = "abcdefg";
+var pos = str.lastIndexOf("b",2);
+document.getElementById("demo").innerHTML = pos;
+</script>
+
+</body>
+</html>//-1
+
+
+
+
+
+
+
+
+
+
+
+
+JSON.parse()
+JSON 的一个常见用途是从 Web 服务器接收数据。
+
+想象一下，您从Web服务器收到这条文本字符串：
+
+'{"name":"Bill", "age":62, "city":"Seatle"}'
+JavaScript 函数 JSON.parse() 用于将文本转换为 JavaScript 对象：
+例子：
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>用 JSON 字符串创建对象</h1>
+
+<p id="demo"></p>
+
+<script>
+var txt = '{"name":"Bill Gates", "age":62, "city":"Seattle"}'
+var obj = JSON.parse(txt);
+document.getElementById("demo").innerHTML = obj.name + ", " + obj.age;
+</script>
+
+</body>
+</html>//Bill Gates  62
+
+
+
+
+JSON.stringify()
+JSON 的一个常见用途是将数据发送到Web服务器。
+
+将数据发送到 Web 服务器时，数据必须是字符串。
+
+想象一下，我们在 JavaScript 中有这个对象：
+
+var obj = {"name":"Bill", "age":62, "city":"Seatle"};
+请使用 JavaScript 函数 JSON.stringify() 将其转换为字符串。
+
+var myJSON = JSON.stringify(obj);
+结果将是遵循 JSON 表示法的字符串。
+
+myJSON 现在是一个字符串，准备好发送到服务器：
+
+实例
+
+
+<!DOCTYPE html>
+<html>
+<body>
+<p id="demo"></p>
+<script>
+var obj = {"name":"Bill Gates", "age":62, "city":"Seattle"};
+var a= JSON.stringify(obj);
+document.getElementById("demo").innerHTML = a;
+</script>
+
+</body>
+</html>//{"name":"Bill Gates", "age":62, "city":"Seattle"}
+
+
+
+Date.now()
+Date.now() 返回自零日期（1970 年 1 月 1 日 00:00:00:00）以来的毫秒数。
+
+实例
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Date.now()</h1>
+
+<p>Date.now() 是ECMAScript 5（2009）中的新功能：</p>
+
+<p id="demo1"></p>
+<p id="demo2"></p>
+
+<script>
+document.getElementById("demo1").innerHTML = Date.now();
+var d = new Date();
+document.getElementById("demo2").innerHTML = d.getTime();
+</script>
+</body>
+</html>
+
+Date.now() 的返回与在 Date 对象上执行 getTime() 的结果相同。
+
+注意：一天为八千六百四十万毫秒
+
+
+
+属性 Getter 和 Setter
+ES5 允许您使用类似于获取或设置属性的语法来定义对象方法。
+
+这个例子为名为 fullName 的属性创建一个 getter：
+
+实例
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Getter 和 Setter</h1>
+
+<p>Getter 和 Setter 允许您通过方法获取和设置属性。</p>
+
+<p>此例为名为 fullName 的属性创建一个 getter。</p>
+
+<p id="demo"></p>
+
+<script>
+// 创建对象：
+var person = {
+  firstName: "Bill",
+  lastName : "Gates",
+  get fullName() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+// 使用 getter 来显示来自对象的数据：
+document.getElementById("demo").innerHTML = person.fullName;
+</script>
+
+</body>
+</html>//Bill，Gates
+
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Getter 和 Setter</h1>
+
+<p>Getter 和 Setter 允许您通过方法获取和设置属性。</p>
+
+<p>此例为名为 fullName 的属性创建一个 getter。</p>
+
+<p id="demo"></p>
+
+<script>
+// 创建对象：
+var person = {
+  firstName: "Bill",
+  lastName : "Gates",
+ set  fullName(value) {
+ this.firstNam=value;
+  }
+
+};
+// 使用 setter 设置对象属性：
+ person .firstNam="ggg";
+document.getElementById("demo").innerHTML = person.firstNam;
+</script>
+
+</body>
+</html>//ggg
+
+
+
+这个例子使用 setter 来确保语言的大写更新：
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Getter 和 Setter</h1>
+
+<p>Getter 和 Setter 允许您通过方法获取和设置属性。</p>
+
+<p>此例具有修改的 setter 以保护语言的大写更新。</p>
+
+<p id="demo"></p>
+
+<script>
+// Create an object:
+var person = {
+  firstName: "John",
+  lastName : "Doe",
+  language : "",
+  set lang(value) {
+     this.language = value.toUpperCase();
+  }
+};
+// 使用 setter 设置对象属性：
+person.lang = "en";
+document.getElementById("demo").innerHTML = person.language;
+</script>
+
+</body>
+</html>//EN
+
+
+
+
+// 将可枚举属性作为数组返回
+Object.keys(object)
+
+const obj = {
+  100: '一百',
+  2: '二',
+  7: '七'
+}
+Object.keys(obj) // ["2", "7", "100"]
+返回值会自动排序
+
+下面这例子又不自动排序了
+
+const obj = {
+  c: 'c',
+  a: 'a',
+  b: 'b'
+}
+Object.keys(obj) // ["c", "a", "b"]
+
+1. 答案
+对于上面那个问题先给出结论，Object.keys在内部会根据属性名key的类型进行不同的排序逻辑。分三种情况：
+
+如果属性名的类型是Number，那么Object.keys返回值是按照key从小到大排序
+如果属性名的类型是String，那么Object.keys返回值是按照属性被创建的时间升序排序。
+如果属性名的类型是Symbol，那么逻辑同String相同
+
+传入字符串，返回索引
+var str = 'ab1234';
+console.log(Object.keys(str));  //[0,1,2,3,4,5]
+
+
+对字符串的属性访问
+charAt() 方法返回字符串中指定索引（位置）的字符：
+
+var str = "HELLO WORLD";
+str.charAt(0);            // 返回 H
+
+ECMAScript 5 允许对字符串进行属性访问：
+
+实例
+var str = "HELLO WORLD";
+str[0];                   // 返回 H
+
+
+尾随逗号(Trailing Commas)
+ECMAScript 5 允许在对象和数组定义中使用尾随逗号：
+
+Object 实例
+person = {
+  firstName: "Bill",
+  lastName: " Gates",
+  age: 62,
+}
+Array 实例
+points = [
+  1,
+  5,
+  10,
+  25,
+  40,
+  100,
+];
+警告！！！
+Internet Explorer 8 将崩溃。
+
+JSON 不允许使用尾随逗号。
+
+JSON 对象：
+// 允许：
+var person = '{"firstName":"Bill", "lastName":"Gates", "age":62}'
+JSON.parse(person)
+
+// 不允许：
+var person = '{"firstName":"Bill", "lastName":"Gates", "age":62,}'
+JSON.parse(person)
+JSON 数组：
+// 允许：
+points = [40, 100, 1, 5, 25, 10]
+
+// 不允许：
+points = [40, 100, 1, 5, 25, 10,]
+
+多行字符串
+如果使用反斜杠转义，ECMAScript 5 允许多行的字符串文字（字面量）：
+
+实例
+"Hello \
+Kitty!";
+
+\ 方法可能没有得到普遍的支持。
+
+较旧的浏览器可能会以不同的方式处理反斜杠周围的空格。
+
+一些旧的浏览器不允许 \ 字符后面的空格。
+
+分解字符串文字的一种更安全的方法是使用字符串添加：
+
+实例
+"Hello " + 
+"Kitty!";
+
+
+保留字作为属性名称
+ECMAScript 5允许保留字作为属性名称：
+
+对象实例
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>ECMAScript 5</h1>
+
+<p>ECMAScript 5 允许保留字作为属性名称：</p>
+
+<p id="demo"></p>
+
+<script>
+var obj = {name: "Bill", new: "yes"};
+document.getElementById("demo").innerHTML = obj.new;
+</script>
+
+</body>
+</html>
+
+
+
