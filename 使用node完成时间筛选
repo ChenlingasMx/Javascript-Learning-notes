@@ -1,0 +1,45 @@
+const dayjs = require('dayjs');
+import Sequelize, { Transaction } from 'sequelize';
+
+export const dateRange = {
+
+  // 基础方法，检索几天前的数据，可以是7天前，可以是30天前，依据传入参数
+  daysAgo: (days: string) => {
+    const dayMsg = parseInt(days, 10) ? days : 0;//
+    const dateEnd = new Date();//获取当前时间
+    const agoDate = dayjs(dateEnd).subtract(dayMsg, 'day');
+    const msg = { [Sequelize.Op.gt]: agoDate };
+    return msg;
+  },
+  // 自定义时间格式
+  verityDate: (time: string) => {
+    const lowerLimit = dayjs(time).format('YYYY/MM/DD HH:mm:ss');
+    return lowerLimit;
+  },
+
+  // 当起始日期和终止日期都存在时 附加验证方法
+  endDate: (startTime: string, endTime: string) => {
+    endTime = dayjs(endTime).add(1, 'day');
+    if (startTime > endTime) { endTime = startTime }
+    return endTime;
+  }
+  ,
+  solution: (itemX: string, itemY: string) => {
+    let condition;
+    if (itemX) {
+      const standardStart: any = dateRange.verityDate(itemX);
+      condition = { [Sequelize.Op.gt]: standardStart };
+      if (itemY) {
+        const standardEnd: any = dateRange.verityDate(itemY);
+        const newEnd: any = dateRange.endDate(standardStart, standardEnd);
+        condition = { [Sequelize.Op.gt]: standardStart, [Sequelize.Op.lt]: newEnd.$d };//搜索范围,大于开始时间,小于结束时间
+      }
+    }
+    return condition;
+  }
+
+}
+
+
+
+
